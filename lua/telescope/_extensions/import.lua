@@ -5,24 +5,6 @@ local conf = require("telescope.config").values
 local action_state = require("telescope.actions.state")
 local utils = require("import.utils")
 
-local function debug(obj)
-  local function dump(o)
-    if type(o) == "table" then
-      local s = "{ "
-      for k, v in pairs(o) do
-        if type(k) ~= "number" then
-          k = '"' .. k .. '"'
-        end
-        s = s .. "[" .. k .. "] = " .. dump(v) .. ","
-      end
-      return s .. "} "
-    else
-      return tostring(o)
-    end
-  end
-  print(dump(obj))
-end
-
 local filetypes = {
   {
     regex = [["^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s]*([@\w/_-]+)[\"'\s].*)"]],
@@ -36,7 +18,6 @@ local function get_imports()
   local find_command = "rg -t js -t ts --no-heading --no-line-number --color=never --no-filename "
     .. pattern
   local results = vim.fn.systemlist(find_command)
-  debug(results)
   results = utils.removeDuplicates(results)
 
   local total = {}
