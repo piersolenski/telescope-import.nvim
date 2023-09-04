@@ -35,4 +35,3 @@ that allows you to quickly import modules based on modules you've already import
 ## Todo
 
 - Update relative files to be relative to the current one
-- Support fd
