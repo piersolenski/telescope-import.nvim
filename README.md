@@ -1,4 +1,4 @@
-# telescope-import.nvim
+# 🚢 telescope-import.nvim
 
 An extension for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 that allows you to import stuff.
