@@ -5,44 +5,97 @@ local conf = require("telescope.config").values
 local action_state = require("telescope.actions.state")
 local utils = require("import.utils")
 
-local filetypes = {
+local filetype_configs = {
   {
-    regex = [["^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s]*([@\w/_-]+)[\"'\s].*)"]],
-    rg_types = { "js", "ts" },
+    regex = [[(?m)^(?:from[ ]+(\S+)[ ]+)?import[ ]+(\S+)[ ]*$]],
+    filetypes = { "python" },
+    extensions = { "py" },
+  },
+  {
+    regex = [[^(?:local (\w+) = require\([\"'](.*?)[\"']\))]],
+    filetypes = { "lua" },
+    extensions = { "lua" },
+  },
+  {
+    regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
+    filetypes = { "typescript", "typescriptreact", "javascript", "react" },
+    extensions = { "js", "ts" },
   },
 }
 
-local function get_imports()
-  local pattern = [["^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s]*([@\w/_-]+)[\"'\s].*)"]]
+local function format_types(strings)
+  local result = ""
+  for i, ext in ipairs(strings) do
+    result = result .. "-t " .. ext
+    if i < #strings then
+      result = result .. " "
+    end
+  end
+  return result
+end
 
-  local find_command = "rg -t js -t ts --no-heading --no-line-number --color=never --no-filename "
-    .. pattern
+local function get_filetype_config(filetype)
+  for _, config in ipairs(filetype_configs) do
+    for _, ft in ipairs(config.filetypes) do
+      if ft == filetype then
+        return config
+      end
+    end
+  end
+  return nil
+end
+
+local function get_imports()
+  local filetype = utils.get_filetype()
+  local config = get_filetype_config(filetype)
+
+  if config == nil then
+    return nil
+  end
+
+  local types = format_types(config.extensions)
+  local flags = " --no-heading --no-line-number --color=never --no-filename "
+
+  local find_command = "rg " .. types .. flags .. '"' .. config.regex .. '"'
+
   local results = vim.fn.systemlist(find_command)
+
+  results = utils.sortByFrequency(results)
   results = utils.removeDuplicates(results)
 
   local total = {}
 
   for _, result in ipairs(results) do
-    table.insert(total, { name = result })
+    table.insert(total, { value = result })
   end
 
   return total
 end
 
 local function search(opts)
-  -- List of predefined colors
-  local colors = get_imports()
+  local imports = get_imports()
+
+  if imports == nil then
+    vim.notify("Filetype not supported", vim.log.levels.ERROR)
+    return nil
+  end
+
+  if next(imports) == nil then
+    vim.notify("No imports found", vim.log.levels.INFO)
+    return nil
+  end
+
   pickers
     .new(opts, {
       prompt_title = "Imports",
       sorter = conf.generic_sorter(opts),
       finder = finders.new_table({
-        results = colors,
-        entry_maker = function(color)
+        results = imports,
+        entry_maker = function(import)
           return {
-            value = color.name,
-            display = color.name,
-            ordinal = color.name,
+            value = import.value,
+            display = import.value,
+            ordinal = import.value,
           }
         end,
       }),
