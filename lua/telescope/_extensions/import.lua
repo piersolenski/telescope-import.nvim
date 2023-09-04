@@ -50,8 +50,8 @@ local function search(opts)
         actions.select_default:replace(function()
           actions.close(prompt_bufnr)
           local selection = action_state.get_selected_entry()
-          local penis = selection.value
-          vim.api.nvim_put({ penis }, "l", false, false)
+          local value = selection.value
+          vim.api.nvim_put({ value }, "l", false, false)
         end)
         return true
       end,
