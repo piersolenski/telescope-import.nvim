@@ -34,7 +34,7 @@ local function search(opts)
   local colors = get_imports()
   pickers
     .new(opts, {
-      prompt_title = "Emojis",
+      prompt_title = "Imports",
       sorter = conf.generic_sorter(opts),
       finder = finders.new_table({
         results = colors,
