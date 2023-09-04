@@ -1,14 +1,25 @@
 # 🚢 telescope-import.nvim
 
 An extension for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-that allows you to import stuff.
+that allows you to quickly import/require modules.
 
-## Get Started
+## Supported languages
 
-Install telescope and this plugin then
+- Javscript / Typescript
+- Lua
+- Python
+
+## Installation
 
 ```lua
-require("telescope").load_extension("import")
+-- Lazy
+{
+  'piersolenski/telescope-import.nvim',
+  requires = 'nvim-telescope/telescope.nvim'
+  config = function()
+    require("telescope").load_extension("import")
+  end
+}
 ```
 
 ## Usage
@@ -19,6 +30,4 @@ require("telescope").load_extension("import")
 
 ## Todo
 
-- Add support for other languages
-- Sort results by frequency
 - Update relative files to be relative to the current one
