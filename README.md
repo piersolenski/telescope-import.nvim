@@ -1,13 +1,17 @@
 # 🚢 telescope-import.nvim
 
 An extension for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-that allows you to quickly import/require modules.
+that allows you to quickly import modules based on modules you've already imported elsewhere in your project.
 
 ## Supported languages
 
 - Javscript / Typescript
 - Lua
 - Python
+
+## Dependencies
+
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
 
 ## Installation
 
@@ -31,3 +35,4 @@ that allows you to quickly import/require modules.
 ## Todo
 
 - Update relative files to be relative to the current one
+- Support fd
