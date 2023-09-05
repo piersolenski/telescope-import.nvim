@@ -3,6 +3,10 @@
 An extension for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 that allows you to quickly import modules based on modules you've already imported elsewhere in your project.
 
+Often we find ourselves importing the same modules over and over again in an existing project. Rather than typing out import statements from scratch or yanking them from existing buffers, `nvim-telesope` greps your project for existing import statements giving you a faster way to paste them into the current buffer.
+
+https://github.com/piersolenski/telescope-import.nvim/assets/1285419/5bf89ff5-2dc9-42f0-87b7-c3acdca6aa32
+
 ## Supported languages
 
 - Javscript / Typescript
@@ -31,7 +35,3 @@ that allows you to quickly import modules based on modules you've already import
 ```
 :Telescope import
 ```
-
-## Todo
-
-- Update relative files to be relative to the current one
