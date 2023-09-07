@@ -13,12 +13,13 @@ https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea
 - Lua
 - Python
 
-## Dependencies
-
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
 
 ## 🔩 Installation
 
+### Dependencies
+
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+ 
 ```lua
 -- Lazy
 {
