@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: kdheepak/panvimdoc@main
         with:
-          vimdoc: wtf.nvim
+          vimdoc: telescope-import.nvim
           demojify: true
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
