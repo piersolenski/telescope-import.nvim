@@ -1,7 +1,6 @@
 local M = {}
 
-M.sortByFrequency = function(inputTable)
-  -- Create a table to store frequencies
+M.sort_by_frequency = function(inputTable)
   local frequencies = {}
 
   -- Count the frequencies of elements in the input table
@@ -20,7 +19,6 @@ M.sortByFrequency = function(inputTable)
     return a.frequency > b.frequency
   end)
 
-  -- Create a result table with sorted elements
   local sortedTable = {}
   for _, pair in ipairs(elementsAndFrequencies) do
     for i = 1, pair.frequency do
@@ -31,7 +29,7 @@ M.sortByFrequency = function(inputTable)
   return sortedTable
 end
 
-M.removeDuplicates = function(inputTable)
+M.remove_duplicates = function(inputTable)
   local uniqueTable = {}
   local resultTable = {}
 
