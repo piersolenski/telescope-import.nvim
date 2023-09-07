@@ -7,9 +7,9 @@ Often we find ourselves importing the same modules over and over again in an exi
 
 https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea7b-4bad-9f86-fb2566bf27c1
 
-## Supported languages
+## 🤖 Supported languages
 
-- Javscript / Typescript
+- Javascript / Typescript
 - Lua
 - Python
 
@@ -17,7 +17,7 @@ https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea
 
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 
-## Installation
+## 🔩 Installation
 
 ```lua
 -- Lazy
@@ -28,9 +28,21 @@ https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea
     require("telescope").load_extension("import")
   end
 }
+
+## ⚙️ Configuration
+
+```lua
+require("telescope").setup({
+  extensions = {
+    import = {
+      -- Add imports to the top of the file keeping the cursor in place
+      insert_at_top = true,
+    },
+  },
+})
 ```
 
-## Usage
+## 🚀 Usage
 
 ```
 :Telescope import
