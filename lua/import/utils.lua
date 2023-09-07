@@ -1,5 +1,25 @@
 local M = {}
 
+M.get_filetype = function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+  return filetype
+end
+
+M.remove_duplicates = function(inputTable)
+  local uniqueTable = {}
+  local resultTable = {}
+
+  for _, value in ipairs(inputTable) do
+    if not uniqueTable[value] then
+      uniqueTable[value] = true
+      table.insert(resultTable, value)
+    end
+  end
+
+  return resultTable
+end
+
 M.sort_by_frequency = function(inputTable)
   local frequencies = {}
 
@@ -27,26 +47,6 @@ M.sort_by_frequency = function(inputTable)
   end
 
   return sortedTable
-end
-
-M.remove_duplicates = function(inputTable)
-  local uniqueTable = {}
-  local resultTable = {}
-
-  for _, value in ipairs(inputTable) do
-    if not uniqueTable[value] then
-      uniqueTable[value] = true
-      table.insert(resultTable, value)
-    end
-  end
-
-  return resultTable
-end
-
-M.get_filetype = function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-  return filetype
 end
 
 return M
