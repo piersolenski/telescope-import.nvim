@@ -15,9 +15,7 @@ https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea
 
 ## 🔩 Installation
 
-### Dependencies
-
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
+Install [ripgrep](https://github.com/BurntSushi/ripgrep).
  
 ```lua
 -- Lazy
