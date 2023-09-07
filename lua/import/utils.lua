@@ -41,7 +41,7 @@ M.sort_by_frequency = function(inputTable)
 
   local sortedTable = {}
   for _, pair in ipairs(elementsAndFrequencies) do
-    for i = 1, pair.frequency do
+    for _ = 1, pair.frequency do
       table.insert(sortedTable, pair.element)
     end
   end
