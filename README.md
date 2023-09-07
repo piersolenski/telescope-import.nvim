@@ -1,7 +1,7 @@
 # 🚢 telescope-import.nvim
 
 An extension for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-that allows you to import modules faster based on imports you've already used elsewhere in your project.
+that allows you to import modules faster based on what you've already imported in your project.
 
 Often we find ourselves importing the same modules over and over again in an existing project. Rather than typing out import statements from scratch or yanking them from other existing files, `nvim-telesope` searches your project for existing import statements giving you a faster way to add them to the current buffer.
 
