@@ -34,10 +34,7 @@ SUPPORTED LANGUAGES*telescope-import.nvim-telescope-import.nvim-supported-langua
 
 INSTALLATION        *telescope-import.nvim-telescope-import.nvim-installation*
 
-
-DEPENDENCIES ~
-
-- ripgrep <https://github.com/BurntSushi/ripgrep>
+Install ripgrep <https://github.com/BurntSushi/ripgrep>.
 
 >lua
     -- Lazy
