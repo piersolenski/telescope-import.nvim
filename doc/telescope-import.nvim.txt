@@ -5,7 +5,6 @@ Table of Contents                    *telescope-import.nvim-table-of-contents*
 
 1. telescope-import.nvim         |telescope-import.nvim-telescope-import.nvim|
   - Supported languages|telescope-import.nvim-telescope-import.nvim-supported-languages|
-  - Dependencies    |telescope-import.nvim-telescope-import.nvim-dependencies|
   - Installation    |telescope-import.nvim-telescope-import.nvim-installation|
   - Usage                  |telescope-import.nvim-telescope-import.nvim-usage|
 
@@ -34,12 +33,12 @@ SUPPORTED LANGUAGES*telescope-import.nvim-telescope-import.nvim-supported-langua
 - Python
 
 
-DEPENDENCIES        *telescope-import.nvim-telescope-import.nvim-dependencies*
+INSTALLATION        *telescope-import.nvim-telescope-import.nvim-installation*
+
+
+DEPENDENCIES ~
 
 - ripgrep <https://github.com/BurntSushi/ripgrep>
-
-
-INSTALLATION        *telescope-import.nvim-telescope-import.nvim-installation*
 
 >lua
     -- Lazy
