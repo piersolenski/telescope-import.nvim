@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  docs:
+    name: pandoc to vimdoc
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: kdheepak/panvimdoc@main
+        with:
+          vimdoc: wtf.nvim
+          demojify: true
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Auto generate docs"
+          branch: ${{ github.head_ref }}
