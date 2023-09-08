@@ -45,3 +45,18 @@ require("telescope").setup({
 ```
 :Telescope import
 ```
+
+## Additional language support
+
+`telescope-import.nvim` uses regex to match import/require patterns. You can add your own by submitting a pull request that adds a filetype config to `filetypes.lua`. The format should be as follows:
+
+```lua
+{
+  -- The regex for the import statement
+  regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
+  -- The Vim filetypes
+  filetypes = { "typescript", "typescriptreact", "javascript", "react" },
+  -- The filetypes that ripgrep supports (find these via `rg --type-list`)
+  extensions = { "js", "ts" },
+}
+```
