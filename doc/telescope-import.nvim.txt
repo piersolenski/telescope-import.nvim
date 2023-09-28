@@ -1,4 +1,4 @@
-*telescope-import.nvim.txt*   For NVIM v0.8.0   Last change: 2023 September 08
+*telescope-import.nvim.txt*   For NVIM v0.8.0   Last change: 2023 September 28
 
 ==============================================================================
 Table of Contents                    *telescope-import.nvim-table-of-contents*
@@ -18,9 +18,9 @@ modules faster based on what you’ve already imported in your project.
 
 Often we find ourselves importing the same modules over and over again in an
 existing project. Rather than typing out import statements from scratch or
-yanking them from other existing files, `nvim-telesope` searches your project
-for existing import statements giving you a faster way to add them to the
-current buffer.
+yanking them from other existing files, `telescope-import.nvim` searches your
+project for existing import statements giving you a faster way to add them to
+the current buffer.
 
 
 https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea7b-4bad-9f86-fb2566bf27c1
@@ -47,7 +47,7 @@ Install ripgrep <https://github.com/BurntSushi/ripgrep>.
       end
     }
     
-      Configuration
+    ## ⚙️ Configuration
     
     ```lua
     require("telescope").setup({
@@ -77,7 +77,7 @@ add your own by submitting a pull request that adds a filetype config to
 >lua
     {
       -- The regex for the import statement
-      regex = [[^(?:import(?:[\"'\s]([\w{}\n, ]+)from\s)?[\"'\s](.?)[\"'\s].)]],
+      regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
       -- The Vim filetypes
       filetypes = { "typescript", "typescriptreact", "javascript", "react" },
       -- The filetypes that ripgrep supports (find these via `rg --type-list`)
