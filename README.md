@@ -12,6 +12,7 @@ https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea
 - Javascript / Typescript
 - Lua
 - Python
+- C++
 
 ## 🔩 Installation
 

@@ -14,6 +14,11 @@ local filetypes = {
     filetypes = { "typescript", "typescriptreact", "javascript", "react" },
     extensions = { "js", "ts" },
   },
+  {
+    regex = [[^(?:#include <.*>)]],
+    filetypes = { "c", "cpp" },
+    extensions = { "h", "c", "cpp" },
+  },
 }
 
 return filetypes
