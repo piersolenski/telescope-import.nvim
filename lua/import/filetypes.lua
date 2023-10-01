@@ -15,7 +15,7 @@ local filetypes = {
     extensions = { "js", "ts" },
   },
   {
-    regex = [[^(?:#include <.*>)]],
+    regex = [[^(?:#include [\"<].*[\">])\s*]],
     filetypes = { "c", "cpp" },
     extensions = { "h", "c", "cpp" },
   },
