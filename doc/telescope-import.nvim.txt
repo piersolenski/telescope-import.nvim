@@ -1,4 +1,4 @@
-*telescope-import.nvim.txt*   For NVIM v0.8.0   Last change: 2023 September 28
+*telescope-import.nvim.txt*    For NVIM v0.8.0    Last change: 2023 October 01
 
 ==============================================================================
 Table of Contents                    *telescope-import.nvim-table-of-contents*
@@ -31,6 +31,7 @@ SUPPORTED LANGUAGES*telescope-import.nvim-telescope-import.nvim-supported-langua
 - Javascript / Typescript
 - Lua
 - Python
+- C++
 
 
 INSTALLATION        *telescope-import.nvim-telescope-import.nvim-installation*
