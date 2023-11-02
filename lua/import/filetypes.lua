@@ -11,8 +11,8 @@ local filetypes = {
   },
   {
     regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
-    filetypes = { "typescript", "typescriptreact", "javascript", "react" },
-    extensions = { "js", "ts" },
+    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact"},
+    extensions = { "js", "jsx", "ts", "tsx" },
   },
   {
     regex = [[^(?:#include <.*>)]],
