@@ -5,6 +5,11 @@ local languages = {
     extensions = { "py" },
   },
   {
+    regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
+    filetypes = { "typescript", "typescriptreact", "javascript", "react" },
+    extensions = { "js", "ts" },
+  },
+  {
     regex = [[^(?:local (\w+) = require\([\"'](.*?)[\"']\))]],
     filetypes = { "lua" },
     extensions = { "lua" },
