@@ -15,7 +15,7 @@ local languages = {
     extensions = { "lua" },
   },
   {
-    regex = [[^(?:#include <.*>)]],
+    regex = [[^(?:#include [\"<].*[\">])\s*]],
     filetypes = { "c", "cpp" },
     extensions = { "h", "c", "cpp" },
   },
