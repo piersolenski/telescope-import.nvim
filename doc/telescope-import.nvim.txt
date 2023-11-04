@@ -27,11 +27,12 @@ https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea
 
 SUPPORTED LANGUAGES*telescope-import.nvim-telescope-import.nvim-supported-languages*
 
+- Bash/Z shell
+- C++
 - Javascript / Typescript
 - Lua
-- Python
-- C++
 - PHP
+- Python
 
 
 INSTALLATION        *telescope-import.nvim-telescope-import.nvim-installation*
