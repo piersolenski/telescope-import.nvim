@@ -4,81 +4,14 @@ local pickers = require("telescope.pickers")
 local conf = require("telescope.config").values
 local action_state = require("telescope.actions.state")
 local utils = require("import.utils")
-local filetypes = require("import.filetypes")
-
-local function format_types(strings)
-  local result = ""
-  for i, ext in ipairs(strings) do
-    result = result .. "-t " .. ext
-    if i < #strings then
-      result = result .. " "
-    end
-  end
-  return result
-end
-
-local function insert_line(value, insert_at_top)
-  local original_position
-
-  if insert_at_top then
-    original_position = vim.fn.getpos(".")
-    vim.cmd("normal! gg")
-  end
-
-  vim.api.nvim_put({ value }, "l", false, false)
-
-  if insert_at_top then
-    vim.fn.setpos(".", original_position)
-  end
-end
-
-local function get_filetype_config(filetype)
-  for _, config in ipairs(filetypes) do
-    for _, ft in ipairs(config.filetypes) do
-      if ft == filetype then
-        return config
-      end
-    end
-  end
-  return nil
-end
-
-local function find_imports()
-  local filetype = utils.get_filetype()
-  local config = get_filetype_config(filetype)
-
-  if config == nil then
-    return nil
-  end
-
-  local types = format_types(config.extensions)
-  local flags = { "--no-heading", "--no-line-number", "--color=never", "--no-filename" }
-
-  local find_command = "rg "
-    .. types
-    .. " "
-    .. table.concat(flags, " ")
-    .. " "
-    .. '"'
-    .. config.regex
-    .. '"'
-
-  local results = vim.fn.systemlist(find_command)
-
-  results = utils.sort_by_frequency(results)
-  results = utils.remove_duplicates(results)
-
-  local imports = {}
-
-  for _, result in ipairs(results) do
-    table.insert(imports, { value = result })
-  end
-
-  return imports
-end
+local default_languages = require("import.languages")
+local find_imports = require("import.find_imports")
+local insert_line = require("import.insert_line")
 
 local function picker(opts)
-  local imports = find_imports()
+  local languages = utils.table_concat(default_languages, opts.custom_languages)
+
+  local imports = find_imports(languages)
 
   if imports == nil then
     vim.notify("Filetype not supported", vim.log.levels.ERROR)

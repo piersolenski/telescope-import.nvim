@@ -6,7 +6,10 @@ if not has_telescope then
 end
 
 local opts = {}
-local default_opts = { insert_at_top = true }
+local default_opts = {
+  insert_at_top = true,
+  custom_languages = {},
+}
 
 return telescope.register_extension({
   setup = function(external_opts, _)
