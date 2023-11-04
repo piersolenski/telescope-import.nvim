@@ -12,7 +12,7 @@ local languages = {
   {
     regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-    extensions = { "js", "jsx", "ts", "tsx" },
+    extensions = { "js", "ts" },
   },
   {
     regex = [[^(?:local (\w+) = require\([\"'](.*?)[\"']\))]],
