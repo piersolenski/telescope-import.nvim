@@ -19,6 +19,11 @@ local filetypes = {
     filetypes = { "c", "cpp" },
     extensions = { "h", "c", "cpp" },
   },
+  {
+    regex = [[^\s*use\s+([\w\\]+)(?:\s*;)?]],
+    filetypes = { "php" },
+    extensions = { "php" },
+  },
 }
 
 return filetypes
