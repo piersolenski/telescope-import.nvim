@@ -50,7 +50,7 @@ require("telescope").setup({
 
 ## Additional language support
 
-`telescope-import.nvim` uses regex to match import/require patterns. You can add your own by submitting a pull request that adds a filetype config to `filetypes.lua`. The format should be as follows:
+`telescope-import.nvim` uses regex to match import/require patterns. You can add your own by submitting a pull request that adds a filetype config to `languages.lua`. The format should be as follows:
 
 ```lua
 {
