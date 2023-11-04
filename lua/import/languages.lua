@@ -1,5 +1,10 @@
 local languages = {
   {
+    regex = [[^(?:source\s+)]],
+    filetypes = { "sh", "zsh" },
+    extensions = { "sh", "zsh" },
+  },
+  {
     regex = [[(?m)^(?:from[ ]+(\S+)[ ]+)?import[ ]+(\S+)[ ]*$]],
     filetypes = { "python" },
     extensions = { "py" },
