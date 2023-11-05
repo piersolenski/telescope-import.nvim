@@ -9,12 +9,15 @@ https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea
 
 ## 🤖 Supported languages
 
-- Bash/Z shell
+- Bash
 - C++
-- Javascript / Typescript
+- Java
+- JavaScript 
+- Typescript
 - Lua
 - PHP
 - Python
+- Zsh
 
 ## 🔩 Installation
 
