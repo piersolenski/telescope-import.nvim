@@ -1,4 +1,4 @@
-*telescope-import.nvim.txt*    For NVIM v0.8.0   Last change: 2023 November 05
+*telescope-import.nvim.txt*    For NVIM v0.8.0   Last change: 2023 November 09
 
 ==============================================================================
 Table of Contents                    *telescope-import.nvim-table-of-contents*
@@ -6,6 +6,7 @@ Table of Contents                    *telescope-import.nvim-table-of-contents*
 1. telescope-import.nvim         |telescope-import.nvim-telescope-import.nvim|
   - Supported languages|telescope-import.nvim-telescope-import.nvim-supported-languages|
   - Installation    |telescope-import.nvim-telescope-import.nvim-installation|
+  - Configuration  |telescope-import.nvim-telescope-import.nvim-configuration|
   - Usage                  |telescope-import.nvim-telescope-import.nvim-usage|
 
 ==============================================================================
@@ -46,15 +47,17 @@ Install ripgrep <https://github.com/BurntSushi/ripgrep>.
     -- Lazy
     {
       'piersolenski/telescope-import.nvim',
-      requires = 'nvim-telescope/telescope.nvim'
+      dependencies = 'nvim-telescope/telescope.nvim'
       config = function()
         require("telescope").load_extension("import")
       end
     }
-    
-    ## ⚙️ Configuration
-    
-    ```lua
+<
+
+
+CONFIGURATION      *telescope-import.nvim-telescope-import.nvim-configuration*
+
+>lua
     require("telescope").setup({
       extensions = {
         import = {
