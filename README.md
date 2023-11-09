@@ -12,7 +12,7 @@ https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea
 - Bash
 - C++
 - Java
-- JavaScript 
+- JavaScript
 - Typescript
 - Lua
 - PHP
@@ -22,16 +22,17 @@ https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea
 ## 🔩 Installation
 
 Install [ripgrep](https://github.com/BurntSushi/ripgrep).
- 
+
 ```lua
 -- Lazy
 {
   'piersolenski/telescope-import.nvim',
-  requires = 'nvim-telescope/telescope.nvim'
+  dependencies = 'nvim-telescope/telescope.nvim'
   config = function()
     require("telescope").load_extension("import")
   end
 }
+```
 
 ## ⚙️ Configuration
 
@@ -62,4 +63,3 @@ require("telescope").setup({
 ```
 :Telescope import
 ```
-
