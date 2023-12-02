@@ -27,7 +27,7 @@ Install [ripgrep](https://github.com/BurntSushi/ripgrep).
 -- Lazy
 {
   'piersolenski/telescope-import.nvim',
-  dependencies = 'nvim-telescope/telescope.nvim'
+  dependencies = 'nvim-telescope/telescope.nvim',
   config = function()
     require("telescope").load_extension("import")
   end
