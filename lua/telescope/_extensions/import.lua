@@ -16,8 +16,9 @@ return telescope.register_extension({
     opts = vim.tbl_extend("force", default_opts, external_opts)
   end,
   exports = {
-    import = function()
-      picker(opts)
+    import = function(_opts)
+      vim.tbl_extend("force", _opts, opts)
+      picker(_opts)
     end,
   },
 })
