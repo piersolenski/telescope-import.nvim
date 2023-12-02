@@ -24,7 +24,9 @@ the current buffer. Import patterns are sorted by frequency, so your most used
 statements are usually just a few keystrokes away.
 
 For languages that support auto importing through their LSP, `telescope-import`
-can still be of benefit by importing multiple exports in fewer keystrokes.
+may still be of benefit by importing frequently used patterns of exports,
+rather than individually importing one at a time, or all at once, which can be
+inaccurate when there are multiple symbols with the same name in the project.
 
 
 https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea7b-4bad-9f86-fb2566bf27c1
