@@ -34,6 +34,11 @@ local languages = {
     filetypes = { "php" },
     extensions = { "php" },
   },
+  {
+    regex = [[^import\s+(\w+)]],
+    filetypes = { "swift" },
+    extensions = { "swift" },
+  },
 }
 
 return languages
