@@ -35,7 +35,7 @@ local languages = {
     extensions = { "php" },
   },
   {
-    regex = [[^import\s+(\w+)]],
+    regex = [[^import\s+(\w+)\s*$]],
     filetypes = { "swift" },
     extensions = { "swift" },
   },
