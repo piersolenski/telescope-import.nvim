@@ -23,6 +23,14 @@ local function picker(opts)
     return nil
   end
 
+  -- add syntax highlighting to the rsults of the picker
+  local currentFiletye = vim.bo.filetype
+  vim.api.nvim_create_autocmd("FileType", {
+  	pattern = "TelescopeResults",
+  	once = true, -- do not affect other Telescope windows
+  	callback = function() vim.bo.filetype = currentFiletye end,
+  })
+
   pickers
     .new(opts, {
       prompt_title = "Imports",
