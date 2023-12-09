@@ -42,6 +42,7 @@ SUPPORTED LANGUAGES*telescope-import.nvim-telescope-import.nvim-supported-langua
 - Lua
 - PHP
 - Python
+- Swift
 - Zsh
 
 
