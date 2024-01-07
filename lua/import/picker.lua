@@ -9,7 +9,7 @@ local find_imports = require("import.find_imports")
 local insert_line = require("import.insert_line")
 
 local function picker(opts)
-  local languages = utils.table_concat(default_languages, opts.custom_languages)
+  local languages = utils.table_concat(opts.custom_languages, default_languages)
 
   local imports = find_imports(languages)
 
