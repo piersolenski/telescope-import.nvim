@@ -1,6 +1,7 @@
 local utils = require("import.utils")
 
-local function format_types(strings)
+-- Returns a string that rg uses to filter filetypes (rg -t)
+local function create_file_types_flag(strings)
   local result = ""
   for i, ext in ipairs(strings) do
     result = result .. "-t " .. ext
@@ -30,7 +31,7 @@ local function find_imports(languages)
     return nil
   end
 
-  local types = format_types(config.extensions)
+  local types = create_file_types_flag(config.extensions)
   local flags = { "--no-heading", "--no-line-number", "--color=never", "--no-filename" }
 
   local find_command = "rg "
