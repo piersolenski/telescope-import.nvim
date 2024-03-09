@@ -5,13 +5,13 @@ local conf = require("telescope.config").values
 local action_state = require("telescope.actions.state")
 local utils = require("import.utils")
 local default_languages = require("import.languages")
-local find_imports = require("import.find_imports")
+local get_project_imports = require("import.get_project_imports")
 local insert_line = require("import.insert_line")
 
 local function picker(opts)
   local languages = utils.concat_tables(opts.custom_languages, default_languages)
 
-  local imports = find_imports(languages)
+  local imports = get_project_imports(languages)
 
   if imports == nil then
     vim.notify("Filetype not supported", vim.log.levels.ERROR)

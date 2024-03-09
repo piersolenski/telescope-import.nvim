@@ -23,59 +23,35 @@ local function get_filetype_config(languages, filetype)
   return nil
 end
 
--- Find the imports in the current file
-local function find_current_file_imports(languages)
+local function find_imports(config, file_path)
+  local types = create_file_types_flag(config.extensions)
+  local flags = { "--no-heading", "--no-line-number", "--color=never", "--no-filename" }
+  local find_command = table.concat({
+    "rg",
+    types,
+    table.concat(flags, " "),
+    string.format('"%s"', config.regex),
+  }, " ")
+
+  if file_path then
+    find_command = find_command .. " " .. file_path
+  end
+
+  return vim.fn.systemlist(find_command)
+end
+
+local function get_project_imports(languages)
   local filetype = utils.get_filetype()
   local config = get_filetype_config(languages, filetype)
 
   if config == nil then
     return nil
   end
-
-  local types = create_file_types_flag(config.extensions)
-  local flags = { "--no-heading", "--no-line-number", "--color=never", "--no-filename" }
 
   local current_file_path = vim.api.nvim_buf_get_name(0)
 
-  local find_command = "rg "
-    .. types
-    .. " "
-    .. table.concat(flags, " ")
-    .. " "
-    .. '"'
-    .. config.regex
-    .. '"'
-    .. " "
-    .. current_file_path
-
-  local results = vim.fn.systemlist(find_command)
-
-  return results
-end
-
-local function find_imports(languages)
-  local filetype = utils.get_filetype()
-  local config = get_filetype_config(languages, filetype)
-
-  if config == nil then
-    return nil
-  end
-
-  local types = create_file_types_flag(config.extensions)
-  local flags = { "--no-heading", "--no-line-number", "--color=never", "--no-filename" }
-
-  local find_command = "rg "
-    .. types
-    .. " "
-    .. table.concat(flags, " ")
-    .. " "
-    .. '"'
-    .. config.regex
-    .. '"'
-
-  local results = vim.fn.systemlist(find_command)
-
-  local local_results = find_current_file_imports(languages)
+  local results = find_imports(config)
+  local local_results = find_imports(config, current_file_path)
 
   results = utils.sort_by_frequency(results)
   results = utils.remove_duplicates(results)
@@ -90,4 +66,4 @@ local function find_imports(languages)
   return imports
 end
 
-return find_imports
+return get_project_imports
