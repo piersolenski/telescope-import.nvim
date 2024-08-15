@@ -25,16 +25,16 @@ local function picker(opts)
     return nil
   end
 
-  -- add syntax highlighting to the rsults of the picker
+  -- Add syntax highlighting to the results of the picker
   local currentFiletype = vim.bo.filetype
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "TelescopeResults",
-    once = true, -- do not affect other Telescope windows
+    once = true, -- Do not affect other Telescope windows
     callback = function(ctx)
-      -- add filetype highlighting
+      -- Add filetype highlighting
       vim.api.nvim_buf_set_option(ctx.buf, "filetype", currentFiletype)
 
-      -- make discernible as the results are now colored
+      -- Make discernible as the results are now colored
       local ns = vim.api.nvim_create_namespace("telescope-import")
       vim.api.nvim_win_set_hl_ns(0, ns)
       vim.api.nvim_set_hl(ns, "TelescopeMatching", { reverse = true })
