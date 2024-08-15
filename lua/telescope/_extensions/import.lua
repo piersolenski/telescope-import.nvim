@@ -17,6 +17,12 @@ return telescope.register_extension({
   end,
   exports = {
     import = function()
+      if opts.insert_at_top then
+        vim.notify(
+          "The insert_at_top option has been removed from telescope-import.nvim in favour of insert_at_line, see the docs for more information.",
+          vim.log.levels.WARN
+        )
+      end
       picker(opts)
     end,
   },
