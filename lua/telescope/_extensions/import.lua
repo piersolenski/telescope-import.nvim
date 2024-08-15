@@ -8,7 +8,7 @@ end
 
 local opts = {}
 local default_opts = {
-  insert_at_line = 1,
+  insert_at_line = nil,
   custom_languages = {},
 }
 
