@@ -1,43 +1,49 @@
 local languages = {
   {
-    regex = [[^(?:source\s+)]],
-    filetypes = { "sh", "zsh" },
     extensions = { "sh", "zsh" },
+    filetypes = { "sh", "zsh" },
+    regex = [[^(?:source\s+)]],
   },
   {
-    regex = [[^import\s+((static\s+)?[\w.]+\*?);\s*$]],
-    filetypes = { "java" },
     extensions = { "java" },
+    filetypes = { "java" },
+    regex = [[^import\s+((static\s+)?[\w.]+\*?);\s*$]],
   },
   {
-    regex = [[(?m)^(?:from[ ]+(\S+)[ ]+)?import[ ]+(\S+)[ ]*$]],
-    filetypes = { "python" },
     extensions = { "py" },
+    filetypes = { "python" },
+    regex = [[(?m)^(?:from[ ]+(\S+)[ ]+)?import[ ]+(\S+)[ ]*$]],
   },
   {
-    regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
-    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     extensions = { "js", "ts" },
+    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
   },
   {
-    regex = [[^(?:local (\w+) = require\([\"'](.*?)[\"']\))]],
-    filetypes = { "lua" },
+    extensions = { "js", "ts" },
+    filetypes = { "vue" },
+    insert_at_line = 2,
+    regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
+  },
+  {
     extensions = { "lua" },
+    filetypes = { "lua" },
+    regex = [[^(?:local (\w+) = require\([\"'](.*?)[\"']\))]],
   },
   {
-    regex = [[^(?:#include [\"<].*[\">])\s*]],
-    filetypes = { "c", "cpp" },
     extensions = { "h", "c", "cpp" },
+    filetypes = { "c", "cpp" },
+    regex = [[^(?:#include [\"<].*[\">])\s*]],
   },
   {
-    regex = [[^\s*use\s+([\w\\]+)(?:\s*;)?]],
-    filetypes = { "php" },
     extensions = { "php" },
+    filetypes = { "php" },
+    regex = [[^\s*use\s+([\w\\]+)(?:\s*;)?]],
   },
   {
-    regex = [[^import\s+(\w+)\s*$]],
-    filetypes = { "swift" },
     extensions = { "swift" },
+    filetypes = { "swift" },
+    regex = [[^import\s+(\w+)\s*$]],
   },
 }
 

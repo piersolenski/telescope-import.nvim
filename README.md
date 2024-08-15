@@ -15,11 +15,12 @@ https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea
 - C++
 - Java
 - JavaScript
-- Typescript
 - Lua
 - PHP
 - Python
 - Swift
+- Typescript
+- Vue
 - Zsh
 
 ## 🔩 Installation
