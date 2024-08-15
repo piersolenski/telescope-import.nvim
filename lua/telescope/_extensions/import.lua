@@ -7,7 +7,7 @@ end
 
 local opts = {}
 local default_opts = {
-  insert_at_top = true,
+  insert_at_line = 1,
   custom_languages = {},
 }
 
