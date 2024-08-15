@@ -10,7 +10,6 @@ For languages that support auto importing through their LSP, `telescope-import` 
 https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea7b-4bad-9f86-fb2566bf27c1
 
 ## 🤖 Supported languages
-
 - Bash
 - C++
 - Java
@@ -20,7 +19,6 @@ https://github.com/piersolenski/telescope-import.nvim/assets/1285419/014753e3-ea
 - Python
 - Swift
 - Typescript
-- Vue
 - Zsh
 
 ## 🔩 Installation
@@ -45,16 +43,16 @@ require("telescope").setup({
   extensions = {
     import = {
       -- Imports can be added at a specified line whilst keeping the cursor in place
-      insert_at_line = 1, ---@type function|number,
-      -- Optionally support additional languages
+      insert_at_line = 1, ---@type function|nil|number,
+      -- Optionally support additional languages or modify existing languages...
       custom_languages = {
         {
           -- The filetypes that ripgrep supports (find these via `rg --type-list`)
           extensions = { "js", "ts" },
           -- The Vim filetypes
-          filetypes = { "typescript", "typescriptreact", "javascript", "react" },
+	   	filetypes = { "vue" },
           -- The global insert_at_line function can be overridden for specific languages
-          insert_at_line = nil ---@type function|number,
+          insert_at_line = 2 ---@type function|nil|number,
           -- The regex pattern for the import statement
           regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
         },

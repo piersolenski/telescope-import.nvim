@@ -16,13 +16,7 @@ local languages = {
   },
   {
     extensions = { "js", "ts" },
-    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-    regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
-  },
-  {
-    extensions = { "js", "ts" },
-    filetypes = { "vue" },
-    insert_at_line = 2,
+    filetypes = { "vue", "javascript", "javascriptreact", "typescript", "typescriptreact" },
     regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
   },
   {
