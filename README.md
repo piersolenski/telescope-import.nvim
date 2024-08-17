@@ -38,6 +38,8 @@ Install [ripgrep](https://github.com/BurntSushi/ripgrep).
 
 ## ⚙️ Configuration
 
+`telescope-import.nvim` requires no configuration out of the box, but you can tweak it in the following ways:
+
 ```lua
 require("telescope").setup({
   extensions = {
@@ -51,8 +53,8 @@ require("telescope").setup({
           extensions = { "js", "ts" },
           -- The Vim filetypes
 	   	filetypes = { "vue" },
-          -- The global insert_at_line function can be overridden for specific languages
-          insert_at_line = 2 ---@type function|nil|number,
+          -- Optionally set a line other than 1
+          insert_at_line = 2 ---@type function|number,
           -- The regex pattern for the import statement
           regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
         },
