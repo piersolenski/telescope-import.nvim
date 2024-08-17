@@ -10,7 +10,7 @@ local languages = {
     extensions = { "java" },
   },
   {
-    regex = [[(?m)^(?:from[ ]+(\S+)[ ]+)?import[ ]+(\S+)[ ]*$]],
+    regex = [[(?m)^(?:from\s+(\S+)\s+)?import\s+([^#\n]+)]],
     filetypes = { "python" },
     extensions = { "py" },
   },
