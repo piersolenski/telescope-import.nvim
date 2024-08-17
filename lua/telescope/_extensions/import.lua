@@ -8,8 +8,9 @@ end
 
 local opts = {}
 local default_opts = {
-  insert_at_line = nil,
   custom_languages = {},
+  insert_at_top = true,
+  insert_at_line = nil,
 }
 
 return telescope.register_extension({

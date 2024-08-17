@@ -43,7 +43,7 @@ require("telescope").setup({
   extensions = {
     import = {
       -- Imports can be added at a specified line whilst keeping the cursor in place
-      insert_at_line = 1, ---@type function|nil|number,
+      insert_at_top = true,
       -- Optionally support additional languages or modify existing languages...
       custom_languages = {
         {

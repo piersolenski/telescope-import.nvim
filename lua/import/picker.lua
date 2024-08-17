@@ -58,11 +58,13 @@ local function picker(opts)
       attach_mappings = function(prompt_bufnr, _)
         actions.select_default:replace(function()
           actions.close(prompt_bufnr)
-          local insert_line_at = (
-            filetype_config and filetype_config.insert_at_line or opts.insert_at_line
+          local default_insertion_line = 1
+          local insert_at_line = (
+            filetype_config and filetype_config.insert_at_line or default_insertion_line
           )
+          local should_insert_at_top = opts.insert_at_top
           local selection = action_state.get_selected_entry()
-          insert_line(selection.value, insert_line_at)
+          insert_line(selection.value, should_insert_at_top and insert_at_line)
         end)
         return true
       end,
