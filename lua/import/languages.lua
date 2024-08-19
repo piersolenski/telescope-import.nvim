@@ -12,7 +12,7 @@ local languages = {
   {
     extensions = { "py" },
     filetypes = { "python" },
-    regex = [[(?m)^(?:from[ ]+(\S+)[ ]+)?import[ ]+(\S+)[ ]*$]],
+    regex = [[(?m)^(?:from\s+(\S+)\s+)?import\s+([^#\n]+)]],
   },
   {
     extensions = { "js", "ts" },
