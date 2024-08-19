@@ -36,13 +36,16 @@ SUPPORTED LANGUAGES*telescope-import.nvim-telescope-import.nvim-supported-langua
 
 - Bash
 - C++
+- Go
 - Java
 - JavaScript
 - Lua
 - PHP
 - Python
+- Svelte
 - Swift
 - Typescript
+- Vue
 - Zsh
 
 
