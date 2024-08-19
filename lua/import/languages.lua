@@ -1,43 +1,67 @@
+local regex = require("import.regex")
+
 local languages = {
   {
-    extensions = { "sh", "zsh" },
-    filetypes = { "sh", "zsh" },
-    regex = [[^(?:source\s+)]],
+    extensions = { "h", "c", "cpp" },
+    filetypes = { "c", "cpp" },
+    regex = regex.c,
+  },
+  {
+    extensions = { "go" },
+    filetypes = { "go" },
+    regex = regex.go,
   },
   {
     extensions = { "java" },
     filetypes = { "java" },
-    regex = [[^import\s+((static\s+)?[\w.]+\*?);\s*$]],
+    regex = regex.java,
   },
   {
-    extensions = { "py" },
-    filetypes = { "python" },
-    regex = [[(?m)^(?:from\s+(\S+)\s+)?import\s+([^#\n]+)]],
+    extensions = { "js", "ts" },
+    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+    regex = regex.javascript,
+  },
+  {
+    extensions = { "js", "ts" },
+    filetypes = { "vue" },
+    regex = regex.javascript,
+    insert_at_line = 2,
+  },
+  {
+    extensions = { "js", "ts" },
+    filetypes = { "svelte" },
+    regex = regex.javascript,
+    insert_at_line = 2,
   },
   {
     extensions = { "js", "ts" },
     filetypes = { "vue", "javascript", "javascriptreact", "typescript", "typescriptreact" },
-    regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
+    regex = regex.javascript,
   },
   {
     extensions = { "lua" },
     filetypes = { "lua" },
-    regex = [[^(?:local (\w+) = require\([\"'](.*?)[\"']\))]],
-  },
-  {
-    extensions = { "h", "c", "cpp" },
-    filetypes = { "c", "cpp" },
-    regex = [[^(?:#include [\"<].*[\">])\s*]],
+    regex = regex.lua,
   },
   {
     extensions = { "php" },
     filetypes = { "php" },
-    regex = [[^\s*use\s+([\w\\]+)(?:\s*;)?]],
+    regex = regex.php,
+  },
+  {
+    extensions = { "py" },
+    filetypes = { "python" },
+    regex = regex.python,
+  },
+  {
+    extensions = { "sh", "zsh" },
+    filetypes = { "sh", "zsh" },
+    regex = regex.shell,
   },
   {
     extensions = { "swift" },
     filetypes = { "swift" },
-    regex = [[^import\s+(\w+)\s*$]],
+    regex = regex.swift,
   },
 }
 
