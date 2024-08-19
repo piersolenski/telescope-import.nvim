@@ -10,7 +10,6 @@ local opts = {}
 local default_opts = {
   custom_languages = {},
   insert_at_top = true,
-  insert_at_line = nil,
 }
 
 return telescope.register_extension({
