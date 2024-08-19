@@ -22,7 +22,7 @@ local languages = {
   {
     extensions = { "lua" },
     filetypes = { "lua" },
-    regex = [[^(?:local (\w+) = require\([\"'](.*?)[\"']\))]],
+    regex = [[^(?:local\s+\w+\s*=\s*)?require\(["'](.-)["']\)]],
   },
   {
     extensions = { "h", "c", "cpp" },
