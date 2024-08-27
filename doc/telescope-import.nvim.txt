@@ -1,4 +1,4 @@
-*telescope-import.nvim.txt*     For NVIM v0.8.0    Last change: 2024 August 20
+*telescope-import.nvim.txt*     For NVIM v0.8.0    Last change: 2024 August 27
 
 ==============================================================================
 Table of Contents                    *telescope-import.nvim-table-of-contents*
