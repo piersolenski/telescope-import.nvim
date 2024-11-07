@@ -55,7 +55,7 @@ require("telescope").setup({
           -- The filetypes that ripgrep supports (find these via `rg --type-list`)
           extensions = { "js", "ts" },
           -- The Vim filetypes
-	   	filetypes = { "vue" },
+          filetypes = { "vue" },
           -- Optionally set a line other than 1
           insert_at_line = 2 ---@type function|number,
           -- The regex pattern for the import statement
