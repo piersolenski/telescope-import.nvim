@@ -1,5 +1,5 @@
 local has_telescope, telescope = pcall(require, "telescope")
-local picker = require("import.picker")
+local picker = require("import")
 local validate_config = require("import.validate_config")
 
 if not has_telescope then
