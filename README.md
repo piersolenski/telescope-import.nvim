@@ -47,6 +47,8 @@ Install [ripgrep](https://github.com/BurntSushi/ripgrep).
 require("telescope").setup({
   extensions = {
     import = {
+      -- The picker to use. Can be "telescope" or "snacks".
+      picker = "telescope",
       -- Imports can be added at a specified line whilst keeping the cursor in place
       insert_at_top = true,
       -- Optionally support additional languages or modify existing languages...

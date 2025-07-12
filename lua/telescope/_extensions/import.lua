@@ -10,6 +10,7 @@ local opts = {}
 local default_opts = {
   custom_languages = {},
   insert_at_top = true,
+  picker = "snacks",
 }
 
 return telescope.register_extension({
