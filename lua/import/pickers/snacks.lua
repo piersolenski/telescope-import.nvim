@@ -1,6 +1,6 @@
 local pick = require("snacks.picker")
 
-local function snacks_picker(imports, on_select)
+local function snacks_picker(imports, filetype, on_select)
   local formatted_imports = {}
 
   for _, result in ipairs(imports) do
@@ -33,11 +33,8 @@ local function snacks_picker(imports, on_select)
 
       on_select(results)
     end,
-    format = function(item, _)
-      local ret = {}
-      ret[#ret + 1] = { item.text }
-      return ret
-    end,
+    format = "text",
+    formatters = { text = { ft = filetype } },
     layout = {
       layout = {
         backdrop = { blend = 40 },

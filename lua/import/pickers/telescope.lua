@@ -4,21 +4,19 @@ local conf = require("telescope.config").values
 local finders = require("telescope.finders")
 local pickers = require("telescope.pickers")
 
-local function telescope_picker(imports, on_select)
+local function telescope_picker(imports, filetype, on_select)
   local formatted_imports = {}
 
   for _, result in ipairs(imports) do
     table.insert(formatted_imports, { value = result })
   end
 
-  -- Add syntax highlighting to the results of the picker
-  local currentFiletype = vim.bo.filetype
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "TelescopeResults",
     once = true, -- Do not affect other Telescope windows
     callback = function(ctx)
       -- Add filetype highlighting
-      vim.bo[ctx.buf].filetype = currentFiletype
+      vim.bo[ctx.buf].filetype = filetype
 
       -- Make discernible as the results are now colored
       local ns = vim.api.nvim_create_namespace("telescope-import")

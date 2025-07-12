@@ -35,7 +35,7 @@ local function run(opts)
     end
   end
 
-  picker.create(opts.picker or "telescope", imports, on_select)
+  picker.create(opts.picker or "telescope", imports, filetype, on_select)
 end
 
 return run
