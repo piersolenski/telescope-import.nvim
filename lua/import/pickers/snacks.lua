@@ -40,19 +40,16 @@ local function snacks_picker(imports, on_select)
     end,
     layout = {
       layout = {
-        backdrop = {
-          blend = 40,
-        },
+        backdrop = { blend = 40 },
         width = 0.3,
         min_width = 80,
-        height = 0.2,
+        height = 0.8,
         min_height = 10,
         box = "vertical",
         border = "rounded",
-        title = " Workspace ",
-        title_pos = "center",
+        title = " Imports ",
+        { win = "input", height = 1, border = "bottom" },
         { win = "list", border = "none" },
-        { win = "input", height = 1, border = "top" },
       },
     },
   })
