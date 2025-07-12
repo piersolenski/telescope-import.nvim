@@ -9,9 +9,9 @@
 
 Import modules faster based on what you've already imported in your project.
 
-Often we find ourselves importing the same modules over and over again in an existing project. Rather than typing out import statements from scratch or yanking them from other existing files, `import.nvim` searches your project for existing import statements giving you a faster way to add them to the current buffer. Import patterns are sorted by frequency, so your most used statements are usually just a few keystrokes away. You can select multiple items to import using tab.
+Often we find ourselves importing the same modules over and over again in an existing project. Rather than typing out import statements from scratch or yanking them from other existing files, `import.nvim` searches your project for existing import statements giving you a faster way to add them to the current buffer. Import patterns are sorted by frequency, so your most used imports are usually just a few keystrokes away. You can select multiple items to import using <kbd>tab</kbd>.
 
-For languages that support auto importing through their LSP, `import.nvim` may still be of benefit by importing frequently used patterns of exports, rather than individually importing one at a time, or all at once, which can be inaccurate when there are multiple symbols with the same name in the project.
+For languages that support auto importing through their LSP, `import.nvim` may still be of benefit when there are multiple symbols with the same name in the project, or if you prefer authoring your files with the modules already imported up top.
 
 https://github.com/user-attachments/assets/b5c2d7bd-ced7-44d1-abd2-d96de37a05e8
 
@@ -92,5 +92,5 @@ Whether it's to discuss a project, talk shop or just say hi, I'd love to hear fr
 - [LinkedIn](https://www.linkedin.com/in/piersolenski/)
 
 <a href='https://ko-fi.com/piersolenski' target='_blank'>
-    <img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' />
+  <img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' />
 </a>
