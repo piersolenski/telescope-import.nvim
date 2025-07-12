@@ -13,6 +13,13 @@ Table of Contents                    *telescope-import.nvim-table-of-contents*
 ==============================================================================
 1. import.nvim                             *telescope-import.nvim-import.nvim*
 
+
+  This plugin was renamed from `telescope-import.nvim` to `import.nvim` as it now
+  supports multiple pickers. Old GitHub URLs will still redirect, but please
+  update your plugin spec to use:
+  >lua
+      { "piersolenski/import.nvim" }
+  <
 Import modules faster based on what you’ve already imported in your project.
 
 Often we find ourselves importing the same modules over and over again in an
