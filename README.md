@@ -1,5 +1,12 @@
 # 🚢 import.nvim
 
+> 📦 This plugin was renamed from `telescope-import.nvim` to `import.nvim` as it now supports multiple pickers. 
+> Old GitHub URLs will still redirect, but please update your plugin spec to use:
+> 
+> ```lua
+> { "piersolenski/import.nvim" }
+> ```
+
 Import modules faster based on what you've already imported in your project.
 
 Often we find ourselves importing the same modules over and over again in an existing project. Rather than typing out import statements from scratch or yanking them from other existing files, `import.nvim` searches your project for existing import statements giving you a faster way to add them to the current buffer. Import patterns are sorted by frequency, so your most used statements are usually just a few keystrokes away. You can select multiple items to import using tab.
