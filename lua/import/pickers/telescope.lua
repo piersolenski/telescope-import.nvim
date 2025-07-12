@@ -19,7 +19,7 @@ local function telescope_picker(imports, filetype, on_select)
       vim.bo[ctx.buf].filetype = filetype
 
       -- Make discernible as the results are now colored
-      local ns = vim.api.nvim_create_namespace("telescope-import")
+      local ns = vim.api.nvim_create_namespace("import.nvim")
       vim.api.nvim_win_set_hl_ns(0, ns)
       vim.api.nvim_set_hl(ns, "TelescopeMatching", { reverse = true })
     end,

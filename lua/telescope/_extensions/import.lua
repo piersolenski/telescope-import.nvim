@@ -3,7 +3,7 @@ local picker = require("import")
 local validate_config = require("import.validate_config")
 
 if not has_telescope then
-  error("Install nvim-telescope/telescope.nvim to use telescope-import.nvim.")
+  error("Install nvim-telescope/telescope.nvim to use import.nvim.")
 end
 
 local opts = {}
