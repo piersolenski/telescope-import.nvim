@@ -1,6 +1,6 @@
 # 🚢 import.nvim
 
-> 📦 This plugin was renamed from `telescope-import.nvim` to `import.nvim` as it now supports multiple pickers. 
+> ⚠️ This plugin was renamed from `telescope-import.nvim` to `import.nvim` as it now supports multiple pickers. 
 > Old GitHub URLs will still redirect, but please update your plugin spec to use:
 > 
 > ```lua
