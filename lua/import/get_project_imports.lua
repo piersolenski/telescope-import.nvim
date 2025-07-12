@@ -36,18 +36,12 @@ local function get_project_imports(config)
 
   local current_file_path = vim.api.nvim_buf_get_name(0)
 
-  local results = find_imports(config)
+  local imports = find_imports(config)
   local local_results = find_imports(config, current_file_path)
 
-  results = utils.sort_by_frequency(results)
-  results = utils.remove_duplicates(results)
-  results = utils.remove_entries(results, local_results)
-
-  local imports = {}
-
-  for _, result in ipairs(results) do
-    table.insert(imports, { value = result })
-  end
+  imports = utils.sort_by_frequency(imports)
+  imports = utils.remove_duplicates(imports)
+  imports = utils.remove_entries(imports, local_results)
 
   return imports
 end
