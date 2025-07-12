@@ -1,4 +1,4 @@
-# 🚢 telescope-import.nvim
+# 🚢 import.nvim
 
 An extension for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 that allows you to import modules faster based on what you've already imported in your project.
