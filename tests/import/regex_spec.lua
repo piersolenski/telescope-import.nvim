@@ -1,3 +1,5 @@
+---@module 'luassert'
+
 local regex = require("import.regex")
 
 describe("Regex with rg", function()
@@ -7,6 +9,25 @@ describe("Regex with rg", function()
     os.remove(test_file)
   end)
 
+  local function test_language_imports(language, expected_lines)
+    local file = io.open(test_file, "w")
+    if file then
+      for _, line in ipairs(expected_lines) do
+        file:write(line .. "\n")
+      end
+      file:close()
+    end
+
+    local find_command = string.format(
+      "rg --no-heading --no-line-number --color=never %s %s",
+      vim.fn.shellescape(regex[language]),
+      test_file
+    )
+    local result = vim.fn.systemlist(find_command)
+
+    assert.are.same(expected_lines, result)
+  end
+
   describe("javascript", function()
     it("matches various import statements", function()
       local lines = {
@@ -15,16 +36,7 @@ describe("Regex with rg", function()
         "import { method as myMethod } from 'package';",
         "import * as package from 'package';",
       }
-      local file = io.open(test_file, "w")
-      for _, line in ipairs(lines) do
-        file:write(line .. "\n")
-      end
-      file:close()
-
-      local find_command = string.format("rg --no-heading --no-line-number --color=never %s %s", vim.fn.shellescape(regex.javascript), test_file)
-      local result = vim.fn.systemlist(find_command)
-
-      assert.are.same(lines, result)
+      test_language_imports("javascript", lines)
     end)
   end)
 
@@ -36,16 +48,7 @@ describe("Regex with rg", function()
         "from package import method1, method2",
         "from package import method as myMethod",
       }
-      local file = io.open(test_file, "w")
-      for _, line in ipairs(lines) do
-        file:write(line .. "\n")
-      end
-      file:close()
-
-      local find_command = string.format("rg --no-heading --no-line-number --color=never %s %s", vim.fn.shellescape(regex.python), test_file)
-      local result = vim.fn.systemlist(find_command)
-
-      assert.are.same(lines, result)
+      test_language_imports("python", lines)
     end)
   end)
 
@@ -55,16 +58,7 @@ describe("Regex with rg", function()
         "local package = require('package')",
         'local package = require("package")',
       }
-      local file = io.open(test_file, "w")
-      for _, line in ipairs(lines) do
-        file:write(line .. "\n")
-      end
-      file:close()
-
-      local find_command = string.format("rg --no-heading --no-line-number --color=never %s %s", vim.fn.shellescape(regex.lua), test_file)
-      local result = vim.fn.systemlist(find_command)
-
-      assert.are.same(lines, result)
+      test_language_imports("lua", lines)
     end)
   end)
 
@@ -74,16 +68,7 @@ describe("Regex with rg", function()
         '#include "package.h"',
         "#include <package.h>",
       }
-      local file = io.open(test_file, "w")
-      for _, line in ipairs(lines) do
-        file:write(line .. "\n")
-      end
-      file:close()
-
-      local find_command = string.format("rg --no-heading --no-line-number --color=never %s %s", vim.fn.shellescape(regex.c), test_file)
-      local result = vim.fn.systemlist(find_command)
-
-      assert.are.same(lines, result)
+      test_language_imports("c", lines)
     end)
   end)
 
@@ -93,16 +78,7 @@ describe("Regex with rg", function()
         '\t"package"',
         'import "package"',
       }
-      local file = io.open(test_file, "w")
-      for _, line in ipairs(lines) do
-        file:write(line .. "\n")
-      end
-      file:close()
-
-      local find_command = string.format("rg --no-heading --no-line-number --color=never %s %s", vim.fn.shellescape(regex.go), test_file)
-      local result = vim.fn.systemlist(find_command)
-
-      assert.are.same(lines, result)
+      test_language_imports("go", lines)
     end)
   end)
 
@@ -112,16 +88,7 @@ describe("Regex with rg", function()
         "import com.package.Class;",
         "import static com.package.Class.*;",
       }
-      local file = io.open(test_file, "w")
-      for _, line in ipairs(lines) do
-        file:write(line .. "\n")
-      end
-      file:close()
-
-      local find_command = string.format("rg --no-heading --no-line-number --color=never %s %s", vim.fn.shellescape(regex.java), test_file)
-      local result = vim.fn.systemlist(find_command)
-
-      assert.are.same(lines, result)
+      test_language_imports("java", lines)
     end)
   end)
 
@@ -131,16 +98,7 @@ describe("Regex with rg", function()
         "use My\\Full\\Classname;",
         "use My\\Full\\Classname",
       }
-      local file = io.open(test_file, "w")
-      for _, line in ipairs(lines) do
-        file:write(line .. "\n")
-      end
-      file:close()
-
-      local find_command = string.format("rg --no-heading --no-line-number --color=never %s %s", vim.fn.shellescape(regex.php), test_file)
-      local result = vim.fn.systemlist(find_command)
-
-      assert.are.same(lines, result)
+      test_language_imports("php", lines)
     end)
   end)
 
@@ -149,16 +107,7 @@ describe("Regex with rg", function()
       local lines = {
         "source file.sh",
       }
-      local file = io.open(test_file, "w")
-      for _, line in ipairs(lines) do
-        file:write(line .. "\n")
-      end
-      file:close()
-
-      local find_command = string.format("rg --no-heading --no-line-number --color=never %s %s", vim.fn.shellescape(regex.shell), test_file)
-      local result = vim.fn.systemlist(find_command)
-
-      assert.are.same(lines, result)
+      test_language_imports("shell", lines)
     end)
   end)
 
@@ -167,16 +116,8 @@ describe("Regex with rg", function()
       local lines = {
         "import Foundation",
       }
-      local file = io.open(test_file, "w")
-      for _, line in ipairs(lines) do
-        file:write(line .. "\n")
-      end
-      file:close()
-
-      local find_command = string.format("rg --no-heading --no-line-number --color=never %s %s", vim.fn.shellescape(regex.swift), test_file)
-      local result = vim.fn.systemlist(find_command)
-
-      assert.are.same(lines, result)
+      test_language_imports("swift", lines)
     end)
   end)
 end)
+
