@@ -1,3 +1,9 @@
+local pickers = require("import.pickers")
+
+local function validate_picker(picker)
+  return pickers[picker] ~= nil
+end
+
 local function validate_language(lang)
   vim.validate({
     extensions = { lang.extensions, "table" },
@@ -17,7 +23,6 @@ end
 
 local function validate_config(opts)
   vim.validate({
-    insert_at_top = { opts.insert_at_top, { "boolean" } },
     custom_languages = {
       opts.custom_languages,
       function(value)
@@ -40,6 +45,8 @@ local function validate_config(opts)
         return true
       end,
     },
+    insert_at_top = { opts.insert_at_top, { "boolean" } },
+    picker = { opts.picker, validate_picker, "supported picker" },
   })
 end
 
