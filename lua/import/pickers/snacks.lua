@@ -46,8 +46,8 @@ local function snacks_picker(imports, filetype, on_select)
       layout = {
         height = constants.height,
         width = constants.width,
-        min_height = constants.in_width,
-        min_width = constants.in_width,
+        min_height = constants.min_height,
+        min_width = constants.min_width,
         box = "vertical",
         border = constants.border,
         title = constants.title,
