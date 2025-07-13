@@ -1,7 +1,4 @@
-local pickers = {
-  telescope = require("import.pickers.telescope"),
-  snacks = require("import.pickers.snacks"),
-}
+local pickers = require("import.pickers")
 
 local function create_picker(picker_type, imports, filetype, on_select)
   local picker = pickers[picker_type]
@@ -12,6 +9,4 @@ local function create_picker(picker_type, imports, filetype, on_select)
   picker(imports, filetype, on_select)
 end
 
-return {
-  create = create_picker,
-}
+return create_picker
