@@ -42,6 +42,7 @@ Install [ripgrep](https://github.com/BurntSushi/ripgrep).
     -- One of the following pickers is required:
     'nvim-telescope/telescope.nvim',
 	'folke/snacks.nvim',
+	'ibhagwan/fzf-lua',
   },
   opts = {
 	picker = "telescope",
@@ -65,7 +66,7 @@ Install [ripgrep](https://github.com/BurntSushi/ripgrep).
 ```lua
 {
   -- The picker to use
-  picker = "telescope" | "snacks",
+  picker = "telescope" | "snacks" | "fzf-lua",
   -- Imports can be added at a specified line whilst keeping the cursor in place
   insert_at_top = true,
   -- Optionally support additional languages or modify existing languages...
