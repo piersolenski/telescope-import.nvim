@@ -38,10 +38,23 @@ Install [ripgrep](https://github.com/BurntSushi/ripgrep).
 -- Lazy
 {
   'piersolenski/import.nvim',
-  dependencies = 'nvim-telescope/telescope.nvim',
-  config = function()
-    require("telescope").load_extension("import")
-  end
+  dependencies = {
+    -- One of the following pickers is required:
+    'nvim-telescope/telescope.nvim',
+	'folke/snacks.nvim',
+  },
+  opts = {
+	picker = "telescope",
+  },
+  keys = {
+    {
+      "<leader>i",
+      function()
+        require("import").pick()
+      end,
+      desc = "Import",
+    },
+  },
 }
 ```
 
@@ -50,35 +63,31 @@ Install [ripgrep](https://github.com/BurntSushi/ripgrep).
 `import.nvim` requires no configuration out of the box, but you can tweak it in the following ways:
 
 ```lua
-require("telescope").setup({
-  extensions = {
-    import = {
-      -- The picker to use. Can be "telescope" or "snacks".
-      picker = "telescope",
-      -- Imports can be added at a specified line whilst keeping the cursor in place
-      insert_at_top = true,
-      -- Optionally support additional languages or modify existing languages...
-      custom_languages = {
-        {
-          -- The filetypes that ripgrep supports (find these via `rg --type-list`)
-          extensions = { "js", "ts" },
-          -- The Vim filetypes
-          filetypes = { "vue" },
-          -- Optionally set a line other than 1
-          insert_at_line = 2 ---@type function|number,
-          -- The regex pattern for the import statement
-          regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
-        },
-      },
+{
+  -- The picker to use
+  picker = "telescope" | "snacks",
+  -- Imports can be added at a specified line whilst keeping the cursor in place
+  insert_at_top = true,
+  -- Optionally support additional languages or modify existing languages...
+  custom_languages = {
+    {
+      -- The filetypes that ripgrep supports (find these via `rg --type-list`)
+      extensions = { "js", "ts" },
+      -- The Vim filetypes
+      filetypes = { "vue" },
+      -- Optionally set a line other than 1
+      insert_at_line = 2 ---@type function|number,
+      -- The regex pattern for the import statement
+      regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
     },
-  },
-})
+  }
+}
 ```
 
 ## 🚀 Usage
 
 ```
-:Telescope import
+:Import
 ```
 
 ## 🤓 About the author
