@@ -67,8 +67,8 @@ Install ripgrep <https://github.com/BurntSushi/ripgrep>.
       dependencies = {
         -- One of the following pickers is required:
         'nvim-telescope/telescope.nvim',
-        'folke/snacks.nvim',
-        'ibhagwan/fzf-lua',
+        -- 'folke/snacks.nvim',
+        -- 'ibhagwan/fzf-lua',
       },
       opts = {
         picker = "telescope",
