@@ -1,3 +1,4 @@
+local constants = require("import.constants")
 local fzf_lua = require("fzf-lua")
 
 local function fzf_picker(imports, _, on_select)
@@ -6,10 +7,10 @@ local function fzf_picker(imports, _, on_select)
       ["--multi"] = true,
     },
     winopts = {
-      width = 100,
-      height = 0.62,
-      border = "rounded",
-      title = " Imports ",
+      width = constants.min_width,
+      height = constants.height,
+      border = constants.border,
+      title = constants.title,
     },
     actions = {
       ["default"] = function(selected)

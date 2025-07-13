@@ -1,5 +1,6 @@
 local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
+local constants = require("import.constants")
 local conf = require("telescope.config").values
 local finders = require("telescope.finders")
 local pickers = require("telescope.pickers")
@@ -27,11 +28,11 @@ local function telescope_picker(imports, filetype, on_select)
 
   pickers
     .new({}, {
-      prompt_title = "Imports",
+      prompt_title = constants.title,
       sorter = conf.generic_sorter(),
       layout_config = {
-        height = 0.62,
-        width = 100,
+        height = constants.height,
+        width = constants.min_width,
       },
       finder = finders.new_table({
         results = formatted_imports,

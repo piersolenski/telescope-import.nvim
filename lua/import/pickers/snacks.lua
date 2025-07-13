@@ -1,3 +1,4 @@
+local constants = require("import.constants")
 local pick = require("snacks.picker")
 
 local function snacks_picker(imports, filetype, on_select)
@@ -37,13 +38,13 @@ local function snacks_picker(imports, filetype, on_select)
     formatters = { text = { ft = filetype } },
     layout = {
       layout = {
-        width = 0.38,
-        min_width = 100,
-        height = 0.62,
-        min_height = 10,
+        height = constants.height,
+        width = constants.width,
+        min_height = constants.in_width,
+        min_width = constants.in_width,
         box = "vertical",
-        border = "rounded",
-        title = " Imports ",
+        border = constants.border,
+        title = constants.title,
         { win = "input", height = 1, border = "bottom" },
         { win = "list", border = "none" },
       },
