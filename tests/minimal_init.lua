@@ -20,6 +20,11 @@ local repos = {
     dir = os.getenv("snacks_DIR") or "/tmp/snacks.nvim",
     plugin = "snacks",
   },
+  {
+    url = "https://github.com/ibhagwan/fzf-lua",
+    dir = os.getenv("fzf-lua_DIR") or "/tmp/fzf-lua.nvim",
+    plugin = "fzf-lua",
+  },
 }
 
 -- Clone repositories
