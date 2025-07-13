@@ -1,5 +1,11 @@
 local constants = require("import.constants")
-local fzf_lua = require("fzf-lua")
+
+local ok, fzf_lua = pcall(require, "fzf-lua")
+if not ok then
+  return function()
+    error("fzf-lua not found. Please install it to use this picker.", 0)
+  end
+end
 
 local function fzf_picker(imports, _, on_select)
   fzf_lua.fzf_exec(imports, {

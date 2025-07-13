@@ -1,5 +1,11 @@
 local constants = require("import.constants")
-local pick = require("snacks.picker")
+
+local ok, pick = pcall(require, "snacks.picker")
+if not ok then
+  return function()
+    error("snacks.nvim not found. Please install it to use this picker.", 0)
+  end
+end
 
 local function snacks_picker(imports, filetype, on_select)
   local formatted_imports = {}

@@ -6,7 +6,11 @@ local function create_picker(picker_type, imports, filetype, on_select)
     vim.notify("Picker not found: " .. picker_type, vim.log.levels.ERROR)
     return
   end
-  picker(imports, filetype, on_select)
+  local ok, err = pcall(picker, imports, filetype, on_select)
+  if not ok then
+    err = err or "Unknown error occurred"
+    vim.notify(err, vim.log.levels.ERROR)
+  end
 end
 
 return create_picker
