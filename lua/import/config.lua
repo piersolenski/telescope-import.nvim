@@ -10,7 +10,7 @@ M.setup = function(opts)
   local default_opts = {
     custom_languages = {},
     insert_at_top = true,
-    picker = "snacks",
+    picker = "telescope",
   }
 
   local merged_opts = vim.tbl_deep_extend("force", default_opts, opts)
