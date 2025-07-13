@@ -29,6 +29,10 @@ local function telescope_picker(imports, filetype, on_select)
     .new({}, {
       prompt_title = "Imports",
       sorter = conf.generic_sorter(),
+      layout_config = {
+        height = 0.62,
+        width = 100,
+      },
       finder = finders.new_table({
         results = formatted_imports,
         entry_maker = function(import)

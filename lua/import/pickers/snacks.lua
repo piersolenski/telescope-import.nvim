@@ -37,10 +37,9 @@ local function snacks_picker(imports, filetype, on_select)
     formatters = { text = { ft = filetype } },
     layout = {
       layout = {
-        backdrop = { blend = 40 },
-        width = 0.3,
-        min_width = 80,
-        height = 0.8,
+        width = 0.38,
+        min_width = 100,
+        height = 0.62,
         min_height = 10,
         box = "vertical",
         border = "rounded",
