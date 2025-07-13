@@ -64,7 +64,6 @@ local function telescope_picker(imports, filetype, on_select)
           end
 
           actions.close(prompt_bufnr)
-          print("results [telescope.lua:69]", vim.inspect(results))
           on_select(results)
         end)
         return true
