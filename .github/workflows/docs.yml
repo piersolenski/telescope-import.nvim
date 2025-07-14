@@ -1,6 +1,9 @@
-name: CI
+name: Docs
 
-on: [push]
+on:
+  push:
+    paths:
+      - 'README.md'
 
 jobs:
   docs:
