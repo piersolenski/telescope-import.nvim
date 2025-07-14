@@ -28,95 +28,97 @@ describe("Regex with rg", function()
     assert.are.same(expected_lines, result)
   end
 
-  describe("javascript", function()
-    it("matches various import statements", function()
-      local lines = {
+  local language_tests = {
+    {
+      name = "c",
+      description = "matches various include statements",
+      lines = {
+        '#include "package.h"',
+        "#include <package.h>",
+      },
+    },
+    {
+      name = "go",
+      description = "matches various import statements",
+      lines = {
+        '\t"package"',
+        'import "package"',
+      },
+    },
+    {
+      name = "java",
+      description = "matches various import statements",
+      lines = {
+        "import com.package.Class;",
+        "import static com.package.Class.*;",
+      },
+    },
+    {
+      name = "javascript",
+      description = "matches various import statements",
+      lines = {
         "import package from 'package';",
         'import { method } from "package";',
         "import { method as myMethod } from 'package';",
         "import * as package from 'package';",
-      }
-      test_language_imports("javascript", lines)
-    end)
-  end)
-
-  describe("python", function()
-    it("matches various import statements", function()
-      local lines = {
+      },
+    },
+    {
+      name = "lua",
+      description = "matches various require statements",
+      lines = {
+        "local package = require('package')",
+        'local package = require("package")',
+      },
+    },
+    {
+      name = "php",
+      description = "matches various use statements",
+      lines = {
+        "use My\\Full\\Classname;",
+        "use My\\Full\\Classname",
+      },
+    },
+    {
+      name = "python",
+      description = "matches various import statements",
+      lines = {
         "import package",
         "from package import method",
         "from package import method1, method2",
         "from package import method as myMethod",
-      }
-      test_language_imports("python", lines)
-    end)
-  end)
-
-  describe("lua", function()
-    it("matches various require statements", function()
-      local lines = {
-        "local package = require('package')",
-        'local package = require("package")',
-      }
-      test_language_imports("lua", lines)
-    end)
-  end)
-
-  describe("c", function()
-    it("matches various include statements", function()
-      local lines = {
-        '#include "package.h"',
-        "#include <package.h>",
-      }
-      test_language_imports("c", lines)
-    end)
-  end)
-
-  describe("go", function()
-    it("matches various import statements", function()
-      local lines = {
-        '\t"package"',
-        'import "package"',
-      }
-      test_language_imports("go", lines)
-    end)
-  end)
-
-  describe("java", function()
-    it("matches various import statements", function()
-      local lines = {
-        "import com.package.Class;",
-        "import static com.package.Class.*;",
-      }
-      test_language_imports("java", lines)
-    end)
-  end)
-
-  describe("php", function()
-    it("matches various use statements", function()
-      local lines = {
-        "use My\\Full\\Classname;",
-        "use My\\Full\\Classname",
-      }
-      test_language_imports("php", lines)
-    end)
-  end)
-
-  describe("shell", function()
-    it("matches various source statements", function()
-      local lines = {
+      },
+    },
+    {
+      name = "ruby",
+      description = "matches various import statements",
+      lines = {
+        "require 'json'",
+        "require 'net/http'",
+        "require_relative '../models/user'",
+      },
+    },
+    {
+      name = "shell",
+      description = "matches various source statements",
+      lines = {
         "source file.sh",
-      }
-      test_language_imports("shell", lines)
-    end)
-  end)
-
-  describe("swift", function()
-    it("matches various import statements", function()
-      local lines = {
+      },
+    },
+    {
+      name = "swift",
+      description = "matches various import statements",
+      lines = {
         "import Foundation",
-      }
-      test_language_imports("swift", lines)
+      },
+    },
+  }
+
+  for _, test_data in ipairs(language_tests) do
+    describe(test_data.name, function()
+      it(test_data.description, function()
+        test_language_imports(test_data.name, test_data.lines)
+      end)
     end)
-  end)
+  end
 end)
