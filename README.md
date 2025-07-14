@@ -6,6 +6,7 @@
 > ```lua
 > { "piersolenski/import.nvim" }
 > ```
+> The previous setup method of registering the plugin as a Telescope extension is still supported, but the new method is recommended for access to latest features.
 
 Import modules faster based on what you've already imported in your project.
 

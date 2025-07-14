@@ -1,4 +1,4 @@
-*telescope-import.nvim.txt*      For NVIM v0.8.0     Last change: 2025 July 13
+*telescope-import.nvim.txt*      For NVIM v0.8.0     Last change: 2025 July 14
 
 ==============================================================================
 Table of Contents                    *telescope-import.nvim-table-of-contents*
@@ -20,6 +20,9 @@ Table of Contents                    *telescope-import.nvim-table-of-contents*
   >lua
       { "piersolenski/import.nvim" }
   <
+  The previous setup method of registering the plugin as a Telescope extension is
+  still supported, but the new method is recommended for access to latest
+  features.
 Import modules faster based on what you’ve already imported in your project.
 
 Often we find ourselves importing the same modules over and over again in an
