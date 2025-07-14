@@ -54,6 +54,11 @@ local languages = {
     regex = regex.python,
   },
   {
+    extensions = { "ruby" },
+    filetypes = { "ruby" },
+    regex = regex.ruby,
+  },
+  {
     extensions = { "sh", "zsh" },
     filetypes = { "sh", "zsh" },
     regex = regex.shell,
