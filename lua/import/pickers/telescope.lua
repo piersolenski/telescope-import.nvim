@@ -1,6 +1,6 @@
 local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
-local constants = require("import.constants")
+local constants = require("import.core.constants")
 local conf = require("telescope.config").values
 local finders = require("telescope.finders")
 local pickers = require("telescope.pickers")

@@ -1,10 +1,10 @@
-local config = require("import.config")
-local create_picker = require("import.create_picker")
-local default_languages = require("import.languages")
-local get_filetype_config = require("import.get_filetype_config")
-local get_project_imports = require("import.get_project_imports")
-local insert_line = require("import.insert_line")
-local utils = require("import.utils")
+local config = require("import.core.config")
+local create_picker = require("import.core.create_picker")
+local default_languages = require("import.language.languages")
+local get_filetype_config = require("import.core.get_filetype_config")
+local get_project_imports = require("import.core.get_project_imports")
+local insert_line = require("import.core.insert_line")
+local utils = require("import.core.utils")
 
 local function pick(opts)
   local options = opts or config.options

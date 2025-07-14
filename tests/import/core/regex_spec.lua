@@ -1,6 +1,6 @@
 ---@module 'luassert'
 
-local regex = require("import.regex")
+local regex = require("import.language.regex")
 
 describe("Regex with rg", function()
   local test_file = "test_imports.js"

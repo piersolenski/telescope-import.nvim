@@ -1,5 +1,5 @@
-local config = require("import.config")
-local pick = require("import.pick")
+local config = require("import.core.config")
+local pick = require("import.commands.pick")
 
 local M = {}
 

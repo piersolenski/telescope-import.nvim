@@ -1,4 +1,4 @@
-local regex = require("import.regex")
+local regex = require("import.language.regex")
 
 local languages = {
   {
