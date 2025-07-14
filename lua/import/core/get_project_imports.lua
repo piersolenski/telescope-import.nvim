@@ -1,5 +1,5 @@
-local utils = require("import.core.utils")
 local constants = require("import.core.constants")
+local utils = require("import.core.utils")
 
 -- Returns a string that rg uses to filter filetypes (rg -t)
 local function create_file_types_flag(strings)

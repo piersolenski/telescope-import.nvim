@@ -1,7 +1,7 @@
 ---@module 'luassert'
 
-local regex = require("import.language.regex")
 local constants = require("import.core.constants")
+local regex = require("import.language.regex")
 
 describe("Regex with rg", function()
   local test_file = "test_imports.js"
@@ -20,12 +20,8 @@ describe("Regex with rg", function()
     end
 
     local flags = table.concat(constants.rg_flags, " ")
-    local find_command = string.format(
-      "rg %s %s %s",
-      flags,
-      vim.fn.shellescape(regex[language]),
-      test_file
-    )
+    local find_command =
+      string.format("rg %s %s %s", flags, vim.fn.shellescape(regex[language]), test_file)
     local result = vim.fn.systemlist(find_command)
 
     assert.are.same(expected_lines, result)
