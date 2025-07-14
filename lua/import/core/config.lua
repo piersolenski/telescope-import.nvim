@@ -1,4 +1,4 @@
-local validate_config = require("import.validate_config")
+local validate_config = require("import.core.validate_config")
 
 local M = {}
 

@@ -1,4 +1,4 @@
-local constants = require("import.constants")
+local constants = require("import.core.constants")
 
 local ok, fzf_lua = pcall(require, "fzf-lua")
 if not ok then

@@ -1,4 +1,4 @@
-local constants = require("import.constants")
+local constants = require("import.core.constants")
 
 local ok, pick = pcall(require, "snacks.picker")
 if not ok then

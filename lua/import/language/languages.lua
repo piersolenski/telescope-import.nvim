@@ -1,4 +1,4 @@
-local regex = require("import.regex")
+local regex = require("import.language.regex")
 
 local languages = {
   {
@@ -52,6 +52,11 @@ local languages = {
     extensions = { "py" },
     filetypes = { "python" },
     regex = regex.python,
+  },
+  {
+    extensions = { "ruby" },
+    filetypes = { "ruby" },
+    regex = regex.ruby,
   },
   {
     extensions = { "sh", "zsh" },

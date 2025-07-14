@@ -1,7 +1,7 @@
-local config = require("import.config")
+local config = require("import.core.config")
 local has_telescope, telescope = pcall(require, "telescope")
 local import = require("import")
-local validate_config = require("import.validate_config")
+local validate_config = require("import.core.validate_config")
 
 if not has_telescope then
   error("Install nvim-telescope/telescope.nvim to use import.nvim.")
