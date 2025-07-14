@@ -5,6 +5,7 @@ local constants = {
   min_height = 10,
   border = "rounded",
   title = " Imports ",
+  rg_flags = { "--no-heading", "--no-line-number", "--color=never", "--no-filename", "--pcre2" },
 }
 
 return constants

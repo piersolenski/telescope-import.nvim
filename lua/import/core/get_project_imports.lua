@@ -1,4 +1,5 @@
 local utils = require("import.core.utils")
+local constants = require("import.core.constants")
 
 -- Returns a string that rg uses to filter filetypes (rg -t)
 local function create_file_types_flag(strings)
@@ -14,11 +15,11 @@ end
 
 local function find_imports(config, file_path)
   local types = create_file_types_flag(config.extensions)
-  local flags = { "--no-heading", "--no-line-number", "--color=never", "--no-filename", "--pcre2" }
+  local flags = table.concat(constants.rg_flags, " ")
   local find_command = table.concat({
     "rg",
     types,
-    table.concat(flags, " "),
+    flags,
     string.format('"%s"', config.regex),
   }, " ")
 
