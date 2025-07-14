@@ -6,9 +6,9 @@ local regex = {
   lua = [[^local (\w+) = require\(?\s*[\"'](.*?)[\"']\s*\)?]],
   php = [[^\s*use\s+([\w\\]+)(?:\s*;)?]],
   python = [[(?m)^(?:from[ ]+(\S+)[ ]+)?import[ ]+(.+?)[ ]*\r?$]],
-  ruby = [[^require(_relative)?\s+(['\"]).*?\2]],
   shell = [[^(?:source\s+)]],
   swift = [[^import\s+(\w+)\s*$]],
+  ruby = [[^require(_relative)?\s+(?:['\"][^'\"]+['\"]|\w[\w/\.]*)]]
 }
 
 return regex

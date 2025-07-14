@@ -95,6 +95,7 @@ describe("Regex with rg", function()
         "require 'json'",
         "require 'net/http'",
         "require_relative '../models/user'",
+        "require json",
       },
     },
     {
