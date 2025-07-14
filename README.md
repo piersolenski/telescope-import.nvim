@@ -25,6 +25,7 @@ https://github.com/user-attachments/assets/b5c2d7bd-ced7-44d1-abd2-d96de37a05e8
 - Lua
 - PHP
 - Python
+- Ruby
 - Svelte
 - Swift
 - Typescript

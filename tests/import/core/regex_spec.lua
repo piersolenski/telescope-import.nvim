@@ -19,7 +19,7 @@ describe("Regex with rg", function()
     end
 
     local find_command = string.format(
-      "rg --no-heading --no-line-number --color=never %s %s",
+      "rg --no-heading --no-line-number --color=never --pcre2 %s %s",
       vim.fn.shellescape(regex[language]),
       test_file
     )

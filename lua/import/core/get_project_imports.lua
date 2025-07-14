@@ -14,7 +14,7 @@ end
 
 local function find_imports(config, file_path)
   local types = create_file_types_flag(config.extensions)
-  local flags = { "--no-heading", "--no-line-number", "--color=never", "--no-filename" }
+  local flags = { "--no-heading", "--no-line-number", "--color=never", "--no-filename", "--pcre2" }
   local find_command = table.concat({
     "rg",
     types,
