@@ -8,7 +8,7 @@ local regex = {
   python = [[(?m)^(?:from[ ]+(\S+)[ ]+)?import[ ]+(.+?)[ ]*\r?$]],
   shell = [[^(?:source\s+)]],
   swift = [[^import\s+(\w+)\s*$]],
-  ruby = [[^require(_relative)?\s+(?:['\"][^'\"]+['\"]|\w[\w/\.]*)]]
+  ruby = [[^require(_relative)?\s+(?:['\"][^'\"]+['\"]|\w[\w/\.]*)]],
 }
 
 return regex
