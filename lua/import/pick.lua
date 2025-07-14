@@ -6,8 +6,8 @@ local get_project_imports = require("import.get_project_imports")
 local insert_line = require("import.insert_line")
 local utils = require("import.utils")
 
-local function pick()
-  local options = config.options
+local function pick(opts)
+  local options = opts or config.options
 
   local languages = utils.concat_tables(options.custom_languages, default_languages)
   local filetype = utils.get_filetype()
