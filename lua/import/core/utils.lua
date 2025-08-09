@@ -70,4 +70,24 @@ M.concat_tables = function(t1, t2)
   return t1
 end
 
+local function lists_have_overlap(list_a, list_b)
+  if type(list_a) ~= "table" or type(list_b) ~= "table" then
+    return false
+  end
+  local values = {}
+  for _, value in ipairs(list_a) do
+    values[value] = true
+  end
+  for _, value in ipairs(list_b) do
+    if values[value] then
+      return true
+    end
+  end
+  return false
+end
+
+-- Deep merge language configs so that custom languages override defaults
+-- when their filetype lists overlap. New custom entries are appended.
+-- merge_language_configs removed; simpler precedence is applied at call site
+
 return M
