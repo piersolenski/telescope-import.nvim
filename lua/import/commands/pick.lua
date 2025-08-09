@@ -9,13 +9,16 @@ local utils = require("import.core.utils")
 local function pick(opts)
   local options = opts or config.options
 
-local filetype = utils.get_filetype()
--- Custom languages first so they take precedence over defaults
-local languages = utils.concat_tables(
-  vim.deepcopy(options.custom_languages or {}),
-  vim.deepcopy(default_languages)
-)
-local filetype_config = get_filetype_config(languages, filetype)
+  local filetype = utils.get_filetype()
+
+  -- Custom languages first so they take precedence over defaults
+  local languages = utils.concat_tables(
+    vim.deepcopy(options.custom_languages or {}),
+    vim.deepcopy(default_languages)
+  )
+
+  local filetype_config = get_filetype_config(languages, filetype)
+
   local imports = get_project_imports(filetype_config)
 
   if imports == nil then
