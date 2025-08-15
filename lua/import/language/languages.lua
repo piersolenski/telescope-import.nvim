@@ -30,13 +30,17 @@ local languages = {
     extensions = { "js", "ts" },
     filetypes = { "vue" },
     regex = regex.javascript,
-    insert_at_line = 2,
+    insert_at_line = function()
+      return vim.fn.search("</script>", "n")
+    end,
   },
   {
     extensions = { "js", "ts" },
     filetypes = { "svelte" },
     regex = regex.javascript,
-    insert_at_line = 2,
+    insert_at_line = function()
+      return vim.fn.search("</script>", "n")
+    end,
   },
   {
     extensions = { "lua" },
