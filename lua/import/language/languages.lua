@@ -47,7 +47,7 @@ local languages = {
     regex = regex.javascript,
   },
   {
-    extensions = { "js", "ts" },
+    extensions = { "vue" },
     filetypes = { "vue" },
     regex = regex.javascript,
     insert_at_line = function()
