@@ -53,19 +53,32 @@ FEATURES                          *telescope-import.nvim-import.nvim-features*
 SUPPORTED LANGUAGES    *telescope-import.nvim-import.nvim-supported-languages*
 
 - Bash
-- C++
+- C/C++
+- C#
 - Dart
+- Elixir
+- F#
 - Go
+- Haskell
 - Java
 - JavaScript
+- Julia
+- Kotlin
 - Lua
+- MATLAB
+- Nim
+- OCaml
 - PHP
 - Python
+- R
 - Ruby
+- Rust
+- Scala
 - Svelte
 - Swift
-- Typescript
+- TypeScript
 - Vue
+- Zig
 - Zsh
 
 
