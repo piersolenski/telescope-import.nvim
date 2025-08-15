@@ -27,9 +27,17 @@ local function pick(opts)
 
   local function on_select(results)
     local default_insertion_line = 1
-    local insert_at_line = (
+    local insert_at_line_config = (
       filetype_config and filetype_config.insert_at_line or default_insertion_line
     )
+
+    local insert_at_line
+    if type(insert_at_line_config) == "function" then
+      insert_at_line = insert_at_line_config()
+    else
+      insert_at_line = insert_at_line_config
+    end
+
     local should_insert_at_top = options.insert_at_top
 
     -- Insert each result on consecutive lines
