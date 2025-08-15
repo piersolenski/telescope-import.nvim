@@ -177,7 +177,7 @@ describe("Regex with rg", function()
       lines = {
         "open System",
         "open System.IO",
-        "#load \"script.fsx\"",
+        '#load "script.fsx"',
       },
     },
     {
@@ -210,7 +210,7 @@ describe("Regex with rg", function()
       name = "ocaml",
       description = "matches various require and open statements",
       lines = {
-        "#require \"lwt\";;",
+        '#require "lwt";;',
         "open List",
         "open Printf",
       },
@@ -228,9 +228,9 @@ describe("Regex with rg", function()
       name = "zig",
       description = "matches various import statements",
       lines = {
-        "const std = @import(\"std\");",
-        "const print = @import(\"std\").debug.print;",
-        "const testing = @import(\"std\").testing;",
+        'const std = @import("std");',
+        'const print = @import("std").debug.print;',
+        'const testing = @import("std").testing;',
       },
     },
   }
