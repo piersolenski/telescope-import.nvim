@@ -9,7 +9,8 @@ local utils = require("import.core.utils")
 local function pick(opts)
   local options = opts or config.options
 
-  local languages = utils.concat_tables(options.custom_languages, default_languages)
+  -- Custom languages are placed first to take precedence over default configurations
+  local languages = utils.concat_tables(options.custom_languages or {}, default_languages)
   local filetype = utils.get_filetype()
   local filetype_config = get_filetype_config(languages, filetype)
   local imports = get_project_imports(filetype_config)
