@@ -51,7 +51,7 @@ local languages = {
     filetypes = { "vue" },
     regex = regex.javascript,
     insert_at_line = function()
-      return vim.fn.search("</script>", "n")
+      return vim.fn.search("<script", "n") + 1
     end,
   },
   {
@@ -59,7 +59,7 @@ local languages = {
     filetypes = { "svelte" },
     regex = regex.javascript,
     insert_at_line = function()
-      return vim.fn.search("</script>", "n")
+      return vim.fn.search("<script", "n") + 1
     end,
   },
   {
