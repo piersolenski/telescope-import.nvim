@@ -22,6 +22,7 @@ https://github.com/user-attachments/assets/b5c2d7bd-ced7-44d1-abd2-d96de37a05e8
 - **Frequency-based sorting**: Most used imports appear first for faster selection
 - **Smart insertion**: Automatically places imports in the correct location for frameworks like Vue and Svelte (inside `<script>` tags)
 - **Multi-select**: Select multiple imports using <kbd>tab</kbd>
+- **Duplicate prevention**: Automatically excludes imports that are already present in the current file
 - **Extensible**: Add support for new languages or customize existing ones
 
 ## 🤖 Supported languages

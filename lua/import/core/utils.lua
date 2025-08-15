@@ -76,4 +76,37 @@ M.concat_tables = function(t1, t2)
   return result
 end
 
+M.get_current_buffer_imports = function(config)
+  if config == nil or config.regex == nil then
+    return {}
+  end
+
+  local bufnr = vim.api.nvim_get_current_buf()
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+  -- Create a temporary file with current buffer content
+  local temp_file = os.tmpname()
+  local file = io.open(temp_file, "w")
+  if not file then
+    return {}
+  end
+
+  for _, line in ipairs(lines) do
+    file:write(line .. "\n")
+  end
+  file:close()
+
+  -- Use ripgrep to find imports in the temporary file
+  local constants = require("import.core.constants")
+  local flags = table.concat(constants.rg_flags, " ")
+  local find_command =
+    string.format("rg %s %s %s", flags, vim.fn.shellescape(config.regex), temp_file)
+  local imports = vim.fn.systemlist(find_command)
+
+  -- Clean up temporary file
+  os.remove(temp_file)
+
+  return imports
+end
+
 return M
