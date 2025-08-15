@@ -7,7 +7,7 @@ format:
 	stylua .
 
 lint:
-	@luacheck lua
+	@luacheck .
 
 test:
 	@nvim \
