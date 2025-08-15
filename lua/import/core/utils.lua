@@ -64,10 +64,39 @@ M.sort_by_frequency = function(inputTable)
 end
 
 M.concat_tables = function(t1, t2)
-  for i = 1, #t2 do
-    t1[#t1 + 1] = t2[i]
+  local result = {}
+  -- Copy first table
+  for i = 1, #t1 do
+    result[i] = t1[i]
   end
-  return t1
+  -- Append second table
+  for i = 1, #t2 do
+    result[#result + 1] = t2[i]
+  end
+  return result
+end
+
+M.get_current_buffer_imports = function(config)
+  if config == nil or config.regex == nil then
+    return {}
+  end
+
+  local bufnr = vim.api.nvim_get_current_buf()
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+  -- Use printf to pipe content to ripgrep without creating a temp file
+  local constants = require("import.core.constants")
+  local flags = table.concat(constants.rg_flags, " ")
+  local content = table.concat(lines, "\n")
+  local find_command = string.format(
+    "printf %s | rg %s %s",
+    vim.fn.shellescape(content),
+    flags,
+    vim.fn.shellescape(config.regex)
+  )
+  local imports = vim.fn.systemlist(find_command)
+
+  return imports
 end
 
 return M
