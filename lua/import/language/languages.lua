@@ -7,6 +7,11 @@ local languages = {
     regex = regex.c,
   },
   {
+    extensions = { "dart" },
+    filetypes = { "dart" },
+    regex = regex.dart,
+  },
+  {
     extensions = { "go" },
     filetypes = { "go" },
     regex = regex.go,
