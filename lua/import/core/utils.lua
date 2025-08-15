@@ -64,10 +64,16 @@ M.sort_by_frequency = function(inputTable)
 end
 
 M.concat_tables = function(t1, t2)
-  for i = 1, #t2 do
-    t1[#t1 + 1] = t2[i]
+  local result = {}
+  -- Copy first table
+  for i = 1, #t1 do
+    result[i] = t1[i]
   end
-  return t1
+  -- Append second table
+  for i = 1, #t2 do
+    result[#result + 1] = t2[i]
+  end
+  return result
 end
 
 return M
