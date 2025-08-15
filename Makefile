@@ -1,7 +1,10 @@
 TESTS_INIT=tests/minimal_init.lua
 TESTS_DIR=tests
 
-.PHONY: test lint
+.PHONY: format lint test
+
+format:
+	stylua .
 
 lint:
 	@luacheck lua
