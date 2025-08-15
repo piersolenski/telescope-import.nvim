@@ -162,6 +162,77 @@ describe("Regex with rg", function()
         "use GenServer",
       },
     },
+    {
+      name = "dart",
+      description = "matches various import statements",
+      lines = {
+        "import 'package:flutter/material.dart';",
+        "import 'dart:convert';",
+        "import 'package:http/http.dart' as http;",
+      },
+    },
+    {
+      name = "fsharp",
+      description = "matches various open statements",
+      lines = {
+        "open System",
+        "open System.IO",
+        "#load \"script.fsx\"",
+      },
+    },
+    {
+      name = "julia",
+      description = "matches various import and using statements",
+      lines = {
+        "import JSON",
+        "using LinearAlgebra",
+        "import Base: +, -",
+      },
+    },
+    {
+      name = "matlab",
+      description = "matches various addpath and import statements",
+      lines = {
+        "addpath /path/to/folder",
+        "import matlab.unittest.TestCase",
+      },
+    },
+    {
+      name = "nim",
+      description = "matches various import statements",
+      lines = {
+        "import strutils",
+        "import os, times",
+        "import json except JsonNode",
+      },
+    },
+    {
+      name = "ocaml",
+      description = "matches various require and open statements",
+      lines = {
+        "#require \"lwt\";;",
+        "open List",
+        "open Printf",
+      },
+    },
+    {
+      name = "scala",
+      description = "matches various import statements",
+      lines = {
+        "import scala.collection.mutable",
+        "import java.util.{Date, HashMap}",
+        "import akka.actor._",
+      },
+    },
+    {
+      name = "zig",
+      description = "matches various import statements",
+      lines = {
+        "const std = @import(\"std\");",
+        "const print = @import(\"std\").debug.print;",
+        "const testing = @import(\"std\").testing;",
+      },
+    },
   }
 
   for _, test_data in ipairs(language_tests) do
