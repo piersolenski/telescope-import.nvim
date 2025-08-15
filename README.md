@@ -151,6 +151,11 @@ Custom languages are merged with built-in language support, with your configurat
 :Import
 ```
 
+
+```lua
+require("import").pick()
+```
+
 ## 🤓 About the author
 
 As well as Vim enthusiast, I am a Front-End Developer and Technical Lead from London, UK.
