@@ -63,16 +63,6 @@ local languages = {
     end,
   },
   {
-    extensions = { "julia" },
-    filetypes = { "julia" },
-    regex = regex.julia,
-  },
-  {
-    extensions = { "kotlin" },
-    filetypes = { "kotlin" },
-    regex = regex.kotlin,
-  },
-  {
     extensions = { "lua" },
     filetypes = { "lua" },
     regex = regex.lua,
