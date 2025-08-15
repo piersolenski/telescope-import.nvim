@@ -34,11 +34,6 @@ local languages = {
     insert_at_line = 2,
   },
   {
-    extensions = { "js", "ts" },
-    filetypes = { "vue", "javascript", "javascriptreact", "typescript", "typescriptreact" },
-    regex = regex.javascript,
-  },
-  {
     extensions = { "lua" },
     filetypes = { "lua" },
     regex = regex.lua,
