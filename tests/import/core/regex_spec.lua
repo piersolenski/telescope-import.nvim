@@ -112,6 +112,56 @@ describe("Regex with rg", function()
         "import Foundation",
       },
     },
+    {
+      name = "rust",
+      description = "matches various use statements",
+      lines = {
+        "use std::collections::HashMap;",
+        "use std::io::{self, Read, Write};",
+        "use serde::{Deserialize, Serialize};",
+        "use tokio::time::{sleep, Duration};",
+      },
+    },
+    {
+      name = "csharp",
+      description = "matches various using statements",
+      lines = {
+        "using System;",
+        "using System.Collections.Generic;",
+        "using Microsoft.AspNetCore.Mvc;",
+        "using Newtonsoft.Json;",
+      },
+    },
+    {
+      name = "kotlin",
+      description = "matches various import statements",
+      lines = {
+        "import android.os.Bundle",
+        "import androidx.appcompat.app.AppCompatActivity",
+        "import kotlinx.coroutines.*",
+        "import com.squareup.moshi.Moshi",
+      },
+    },
+    {
+      name = "haskell",
+      description = "matches various import statements",
+      lines = {
+        "import Control.Monad",
+        "import Data.Text (Text)",
+        "import qualified Data.Text as T",
+        "import qualified Data.Map as Map",
+      },
+    },
+    {
+      name = "elixir",
+      description = "matches various import/alias/require/use statements",
+      lines = {
+        "import Ecto.Query",
+        "alias MyApp.{User, Post, Comment}",
+        "require Logger",
+        "use GenServer",
+      },
+    },
   }
 
   for _, test_data in ipairs(language_tests) do

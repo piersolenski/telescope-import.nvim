@@ -1,14 +1,27 @@
 local regex = {
   c = [[^(?:#include [\"<].*[\">])\s*]],
+  csharp = [[^using\s+(.*?);]],
+  dart = [[^import\s+[\"'](.*?)[\"'];?]],
+  elixir = [[^(?:import|alias|require|use)\s+(.*)]],
+  fsharp = [[^(?:open\s+|#load\s+)(.*)]],
   go = [[^\t(\".*\")|^import (\".*\")]],
+  haskell = [[^import\s+(.*)]],
   java = [[^import\s+((static\s+)?[\w.]+\*?);\s*$]],
   javascript = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
+  julia = [[^(?:import|using)\s+(.*)]],
+  kotlin = [[^import\s+(.*)]],
   lua = [[^local (\w+) = require\(?\s*[\"'](.*?)[\"']\s*\)?]],
+  matlab = [[^(?:addpath|import)\s+(.*)]],
+  nim = [[^import\s+(.*)]],
+  ocaml = [[^(?:#require|open)\s+(.*)]],
   php = [[^\s*use\s+([\w\\]+)(?:\s*;)?]],
   python = [[(?m)^(?:from[ ]+(\S+)[ ]+)?import[ ]+(.+?)[ ]*\r?$]],
+  ruby = [[^require(_relative)?\s+(?:['\"][^'\"]+['\"]|\w[\w/\.]*)$]],
+  rust = [[^use\s+(.*?);]],
+  scala = [[^import\s+(.*)]],
   shell = [[^(?:source\s+)]],
   swift = [[^import\s+(\w+)\s*$]],
-  ruby = [[^require(_relative)?\s+(?:['\"][^'\"]+['\"]|\w[\w/\.]*)$]],
+  zig = [[^const\s+\w+\s*=\s*@import\s*\(\s*["'](.*?)["']\s*\);?]],
 }
 
 return regex

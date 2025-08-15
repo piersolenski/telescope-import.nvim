@@ -26,19 +26,32 @@ https://github.com/user-attachments/assets/b5c2d7bd-ced7-44d1-abd2-d96de37a05e8
 
 ## 🤖 Supported languages
 - Bash
-- C++
+- C/C++
+- C#
 - Dart
+- Elixir
+- F#
 - Go
+- Haskell
 - Java
 - JavaScript
+- Julia
+- Kotlin
 - Lua
+- MATLAB
+- Nim
+- OCaml
 - PHP
 - Python
+- R
 - Ruby
+- Rust
+- Scala
 - Svelte
 - Swift
-- Typescript
+- TypeScript
 - Vue
+- Zig
 - Zsh
 
 ## 🔩 Installation
