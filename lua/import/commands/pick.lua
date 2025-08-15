@@ -12,15 +12,7 @@ local function pick(opts)
   -- Custom languages are placed first to take precedence over default configurations
   local languages = utils.concat_tables(options.custom_languages or {}, default_languages)
   local filetype = utils.get_filetype()
-
-  -- Custom languages first so they take precedence over defaults
-  local languages = utils.concat_tables(
-    vim.deepcopy(options.custom_languages or {}),
-    vim.deepcopy(default_languages)
-  )
-
   local filetype_config = get_filetype_config(languages, filetype)
-
   local imports = get_project_imports(filetype_config)
 
   if imports == nil then
@@ -50,7 +42,7 @@ local function pick(opts)
 
     -- Insert each result on consecutive lines
     for i, result in ipairs(results) do
-      local current_line = should_insert_at_top and (insertion_base_line + i - 1) or nil
+      local current_line = should_insert_at_top and (insert_at_line + i - 1) or nil
       insert_line(result, current_line)
     end
   end
