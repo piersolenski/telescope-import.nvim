@@ -173,8 +173,8 @@ EXAMPLES
       {
         filetypes = { "vue" },
         insert_at_line = function() 
-          -- Insert after opening <script> tag instead of before closing tag
-          return vim.fn.search("<script", "n") + 1
+          -- Insert before closing <script> tag instead of after the opening tag
+          return vim.fn.search("</script>", "n") + 1
         end,
       }
     }
