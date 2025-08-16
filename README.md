@@ -8,11 +8,14 @@
 > ```
 > The previous setup method of registering the plugin as a Telescope extension is still supported, but the new method is recommended for access to latest features.
 
-Import modules faster based on what you've already imported in your project.
+`import.nvim` helps you add import statements faster by searching your project for existing imports and presenting them in a picker. Instead of typing out imports from scratch or yanking them from other files, you get a searchable list of all imports already used in your project, sorted by frequency of use.
 
-Often we find ourselves importing the same modules over and over again in an existing project. Rather than typing out import statements from scratch or yanking them from other existing files, `import.nvim` searches your project for existing import statements giving you a faster way to add them to the current buffer.
+Think of it as "import autocomplete" based on your project's actual usage patterns. It's particularly useful when:
 
-For languages that support auto importing through their LSP, `import.nvim` may still be of benefit when there are multiple symbols with the same name in the project, or if you prefer authoring your files with the modules already imported up top.
+- Your LSP doesn't support auto-imports
+- Multiple LSP symbols share the same name
+- You prefer typing your imports upfront rather than importing missing ones
+- You're working in a large codebase with consistent import patterns
 
 https://github.com/user-attachments/assets/b5c2d7bd-ced7-44d1-abd2-d96de37a05e8
 
