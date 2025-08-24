@@ -1,14 +1,15 @@
 # 🚢 import.nvim
 
-> ⚠️ This plugin was renamed from `telescope-import.nvim` to `import.nvim` as it now supports multiple pickers. 
+> ⚠️ This plugin was renamed from `telescope-import.nvim` to `import.nvim` as it now supports multiple pickers.
 > Old GitHub URLs will still redirect, but please update your plugin spec to use:
-> 
+>
 > ```lua
 > { "piersolenski/import.nvim" }
 > ```
+>
 > The previous setup method of registering the plugin as a Telescope extension is still supported, but the new method is recommended for access to latest features.
 
-`import.nvim` helps you add import statements faster by searching your project for existing imports and presenting them in a picker. Instead of typing out imports from scratch or yanking them from other files, you get a searchable list of all imports already used in your project, sorted by frequency of use.
+Often we find ourselves importing the same modules over and over again in an existing project. `import.nvim` helps you add import statements faster by searching your project for existing imports and presenting them in a picker. Instead of typing out imports from scratch or yanking them from other files, you get a searchable list of all imports already used in your project, sorted by frequency of use.
 
 Think of it as "import autocomplete" based on your project's actual usage patterns. It's particularly useful when:
 
@@ -17,7 +18,7 @@ Think of it as "import autocomplete" based on your project's actual usage patter
 - You prefer typing your imports upfront rather than importing missing ones
 - You're working in a large codebase with consistent import patterns
 
-https://github.com/user-attachments/assets/b5c2d7bd-ced7-44d1-abd2-d96de37a05e8
+<https://github.com/user-attachments/assets/b5c2d7bd-ced7-44d1-abd2-d96de37a05e8>
 
 ## ✨ Features
 
@@ -29,6 +30,7 @@ https://github.com/user-attachments/assets/b5c2d7bd-ced7-44d1-abd2-d96de37a05e8
 - **Extensible**: Add support for new languages or customize existing ones
 
 ## 🤖 Supported languages
+
 - Bash
 - C/C++
 - C#
@@ -69,11 +71,11 @@ Install [ripgrep](https://github.com/BurntSushi/ripgrep).
   dependencies = {
     -- One of the following pickers is required:
     'nvim-telescope/telescope.nvim',
-	-- 'folke/snacks.nvim',
-	-- 'ibhagwan/fzf-lua',
+ -- 'folke/snacks.nvim',
+ -- 'ibhagwan/fzf-lua',
   },
   opts = {
-	picker = "telescope",
+ picker = "telescope",
   },
   keys = {
     {
@@ -113,18 +115,21 @@ The `custom_languages` configuration allows you to add support for new languages
 #### Required Fields by Use Case
 
 **To add a new language:** All fields are required
+
 - **`extensions`**: File extensions that ripgrep will search (use `rg --type-list` to see supported types)
 - **`filetypes`**: Neovim filetypes where this configuration applies  
 - **`regex`**: Regular expression pattern to match import statements in the language
 - **`insert_at_line`** (optional): Line number where imports should be inserted (defaults to 1)
 
 **To customize an existing language:** Only specify the fields you want to override
+
 - **`filetypes`**: Must match the existing language's filetypes exactly
 - Other fields are only needed if you want to change them
 
 #### Examples
 
 **Add support for a new language:**
+
 ```lua
 custom_languages = {
   {
@@ -136,6 +141,7 @@ custom_languages = {
 ```
 
 **Override just the insertion behavior for Vue.js:**
+
 ```lua
 custom_languages = {
   {
@@ -149,6 +155,7 @@ custom_languages = {
 ```
 
 **Override multiple aspects of an existing language:**
+
 ```lua
 custom_languages = {
   {
@@ -167,7 +174,6 @@ Custom languages are merged with built-in language support, with your configurat
 ```
 :Import
 ```
-
 
 ```lua
 require("import").pick()
