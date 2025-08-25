@@ -1,6 +1,7 @@
 local regex = {
   c = [[^(?:#include [\"<].*[\">])\s*]],
   csharp = [[^using\s+(.*?);]],
+  d = [[^(?:public\s+)?import\s+(.*?);]],
   dart = [[^import\s+[\"'](.*?)[\"'];?]],
   elixir = [[^(?:import|alias|require|use)\s+(.*)]],
   fsharp = [[^(?:open\s+|#load\s+)(.*)]],
