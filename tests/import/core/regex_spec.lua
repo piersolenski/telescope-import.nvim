@@ -41,6 +41,7 @@ describe("Regex with rg", function()
       description = "matches various import statements",
       lines = {
         '\t"package"',
+        '\talias "package"',
         'import "package"',
         'import . "package"',
         'import alias "package"',
