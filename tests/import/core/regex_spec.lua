@@ -42,6 +42,9 @@ describe("Regex with rg", function()
       lines = {
         '\t"package"',
         'import "package"',
+        'import . "package"',
+        'import alias "package"',
+        'import mypackage "github.com/user/repo"',
       },
     },
     {
