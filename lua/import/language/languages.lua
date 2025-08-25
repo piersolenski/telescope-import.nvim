@@ -12,6 +12,11 @@ local languages = {
     regex = regex.csharp,
   },
   {
+    extensions = { "d" },
+    filetypes = { "d" },
+    regex = regex.d,
+  },
+  {
     extensions = { "dart" },
     filetypes = { "dart" },
     regex = regex.dart,

@@ -133,6 +133,16 @@ describe("Regex with rg", function()
       },
     },
     {
+      name = "d",
+      description = "matches various import statements",
+      lines = {
+        "import std.stdio;",
+        "import std.algorithm;",
+        "import std.string;",
+        "public import libweb.utils.conv;",
+      },
+    },
+    {
       name = "kotlin",
       description = "matches various import statements",
       lines = {
