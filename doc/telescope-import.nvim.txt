@@ -1,4 +1,4 @@
-*telescope-import.nvim.txt*     For NVIM v0.8.0    Last change: 2025 August 15
+*telescope-import.nvim.txt*     For NVIM v0.8.0    Last change: 2025 August 26
 
 ==============================================================================
 Table of Contents                    *telescope-import.nvim-table-of-contents*
@@ -24,21 +24,23 @@ Table of Contents                    *telescope-import.nvim-table-of-contents*
   The previous setup method of registering the plugin as a Telescope extension is
   still supported, but the new method is recommended for access to latest
   features.
-Import modules faster based on what you’ve already imported in your project.
-
 Often we find ourselves importing the same modules over and over again in an
-existing project. Rather than typing out import statements from scratch or
-yanking them from other existing files, `import.nvim` searches your project for
-existing import statements giving you a faster way to add them to the current
-buffer.
+existing project. `import.nvim` helps you add import statements faster by
+searching your project for existing imports and presenting them in a picker.
+Instead of typing out imports from scratch or yanking them from other files,
+you get a searchable list of all imports already used in your project, sorted
+by frequency of use.
 
-For languages that support auto importing through their LSP, `import.nvim` may
-still be of benefit when there are multiple symbols with the same name in the
-project, or if you prefer authoring your files with the modules already
-imported up top.
+Think of it as "import autocomplete" based on your project’s actual usage
+patterns. It’s particularly useful when:
+
+- Your LSP doesn’t support auto-imports
+- Multiple LSP symbols share the same name
+- You prefer typing your imports upfront rather than importing missing ones
+- You’re working in a large codebase with consistent import patterns
 
 
-https://github.com/user-attachments/assets/b5c2d7bd-ced7-44d1-abd2-d96de37a05e8
+<https://github.com/user-attachments/assets/b5c2d7bd-ced7-44d1-abd2-d96de37a05e8>
 
 
 FEATURES                          *telescope-import.nvim-import.nvim-features*
@@ -94,11 +96,11 @@ Install ripgrep <https://github.com/BurntSushi/ripgrep>.
       dependencies = {
         -- One of the following pickers is required:
         'nvim-telescope/telescope.nvim',
-        -- 'folke/snacks.nvim',
-        -- 'ibhagwan/fzf-lua',
+     -- 'folke/snacks.nvim',
+     -- 'ibhagwan/fzf-lua',
       },
       opts = {
-        picker = "telescope",
+     picker = "telescope",
       },
       keys = {
         {
@@ -125,7 +127,19 @@ the following ways:
       -- Imports can be added at a specified line whilst keeping the cursor in place
       insert_at_top = true,
       -- Optionally support additional languages or modify existing languages...
-      custom_languages = {}
+      custom_languages = {},
+      -- Optional picker-specific options
+      picker_opts = {
+        snacks = {
+          -- Snacks-specific options here
+        },
+        telescope = {
+          -- Telescope-specific options here
+        },
+        ["fzf-lua"] = {
+          -- fzf-lua-specific options here
+        },
+      },
     }
 <
 
@@ -140,15 +154,17 @@ languages or customize existing ones.
 
 REQUIRED FIELDS BY USE CASE
 
-**To add a new language:** All fields are required - **extensions**File
-extensions that ripgrep will search (use `rg --type-list` to see supported
-types) - **filetypes**Neovim filetypes where this configuration applies -
-**regex**Regular expression pattern to match import statements in the language
-- **insert_at_line** (optional): Line number where imports should be inserted
-(defaults to 1)
+**To add a new language:** All fields are required
+
+- **extensions**File extensions that ripgrep will search (use `rg --type-list` to see supported types)
+- **filetypes**Neovim filetypes where this configuration applies
+- **regex**Regular expression pattern to match import statements in the language
+- **insert_at_line** (optional): Line number where imports should be inserted (defaults to 1)
 
 **To customize an existing language:** Only specify the fields you want to
-override - **filetypes**Must match the existing language’s filetypes exactly
+override
+
+- **filetypes**Must match the existing language’s filetypes exactly
 - Other fields are only needed if you want to change them
 
 
@@ -173,8 +189,8 @@ EXAMPLES
       {
         filetypes = { "vue" },
         insert_at_line = function() 
-          -- Insert after opening <script> tag instead of before closing tag
-          return vim.fn.search("<script", "n") + 1
+          -- Insert before closing <script> tag instead of after the opening tag
+          return vim.fn.search("</script>", "n") + 1
         end,
       }
     }
@@ -192,7 +208,26 @@ EXAMPLES
     }
 <
 
-Custom languages are merged with built-in language support, with your configurations taking precedence over defaults.
+Custom languages are merged with built-in language support, with your
+configurations taking precedence over defaults.
+
+
+CONTRIBUTING LANGUAGES
+
+If you created a custom language configuration that works well, please consider
+contributing it to make it a default supported language! Here’s how:
+
+1. Fork the repository on GitHub
+2. Create a feature branch named `feature/add-<language>-support` (e.g., `feature/add-elm-support`)
+3. Add the regex pattern to `lua/import/language/regex.lua`
+4. Add the language config to `lua/import/language/languages.lua`
+5. Add comprehensive tests for different import formats to `tests/import/core/regex_spec.lua`
+6. Run checks with `make check` to ensure everything works
+7. Submit a pull request with your changes
+
+Your contribution will help other users of the same language!
+
+
 USAGE                                *telescope-import.nvim-import.nvim-usage*
 
 >
@@ -206,8 +241,8 @@ USAGE                                *telescope-import.nvim-import.nvim-usage*
 
 ABOUT THE AUTHOR          *telescope-import.nvim-import.nvim-about-the-author*
 
-As well as Vim enthusiast, I am a Front-End Developer and Technical Lead from
-London, UK.
+As well as a passionate Vim enthusiast, I am a Full Stack Developer and
+Technical Lead from London, UK.
 
 Whether it’s to discuss a project, talk shop or just say hi, I’d love to
 hear from you!
