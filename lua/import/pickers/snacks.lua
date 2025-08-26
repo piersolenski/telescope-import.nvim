@@ -10,11 +10,13 @@ end
 local user_layout = snacks.config.picker.layout.layout
 
 local overrides = {
-  title = constants.title,
   width = constants.width,
   height = constants.height,
   min_height = constants.min_height,
   min_width = constants.min_width,
+  {
+    title = constants.title,
+  },
 }
 
 local layout = vim.tbl_deep_extend("force", user_layout, overrides)
