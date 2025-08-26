@@ -5,7 +5,8 @@ local conf = require("telescope.config").values
 local finders = require("telescope.finders")
 local pickers = require("telescope.pickers")
 
-local function telescope_picker(imports, filetype, on_select)
+local function telescope_picker(imports, filetype, on_select, opts)
+  opts = opts or {}
   local formatted_imports = {}
 
   for _, result in ipairs(imports) do
@@ -26,8 +27,9 @@ local function telescope_picker(imports, filetype, on_select)
     end,
   })
 
-  pickers
-    .new({}, {
+  local picker_opts = vim.tbl_deep_extend(
+    "force",
+    {
       prompt_title = constants.title,
       sorter = conf.generic_sorter(),
       layout_config = {
@@ -73,8 +75,11 @@ local function telescope_picker(imports, filetype, on_select)
         end)
         return true
       end,
-    })
-    :find()
+    },
+    opts
+  )
+
+  pickers.new(picker_opts):find()
 end
 
 return telescope_picker

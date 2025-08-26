@@ -7,14 +7,15 @@ if not ok then
   end
 end
 
-local function snacks_picker(imports, filetype, on_select)
+local function snacks_picker(imports, filetype, on_select, opts)
+  opts = opts or {}
   local formatted_imports = {}
 
   for _, result in ipairs(imports) do
     table.insert(formatted_imports, { text = result })
   end
 
-  pick({
+  local default_opts = {
     items = formatted_imports,
     confirm = function(picker)
       picker:close()
@@ -55,7 +56,16 @@ local function snacks_picker(imports, filetype, on_select)
         { win = "list", border = "none" },
       },
     },
-  })
+  }
+
+  if opts.layout then
+    default_opts.layout = vim.tbl_deep_extend("force", default_opts.layout, opts.layout)
+    opts.layout = nil
+  end
+
+  local picker_opts = vim.tbl_deep_extend("force", default_opts, opts)
+
+  pick(picker_opts)
 end
 
 return snacks_picker

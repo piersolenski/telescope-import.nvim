@@ -8,6 +8,12 @@ M.default_options = {
   custom_languages = {},
   insert_at_top = true,
   picker = "telescope",
+  -- Optional picker-specific options
+  picker_opts = {
+    telescope = {},
+    ["fzf-lua"] = {},
+    snacks = {},
+  },
 }
 
 M.setup = function(opts)

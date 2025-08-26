@@ -7,8 +7,10 @@ if not ok then
   end
 end
 
-local function fzf_picker(imports, _, on_select)
-  fzf_lua.fzf_exec(imports, {
+local function fzf_picker(imports, _, on_select, opts)
+  opts = opts or {}
+
+  local picker_opts = vim.tbl_deep_extend("force", {
     fzf_opts = {
       ["--multi"] = true,
     },
@@ -23,7 +25,9 @@ local function fzf_picker(imports, _, on_select)
         on_select(selected)
       end,
     },
-  })
+  }, opts)
+
+  fzf_lua.fzf_exec(imports, picker_opts)
 end
 
 return fzf_picker

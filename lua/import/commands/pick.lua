@@ -47,7 +47,7 @@ local function pick(opts)
     end
   end
 
-  create_picker(options.picker, imports, filetype, on_select)
+  create_picker(options, imports, filetype, on_select)
 end
 
 return pick

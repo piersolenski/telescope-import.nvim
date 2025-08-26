@@ -100,7 +100,19 @@ Install [ripgrep](https://github.com/BurntSushi/ripgrep).
   -- Imports can be added at a specified line whilst keeping the cursor in place
   insert_at_top = true,
   -- Optionally support additional languages or modify existing languages...
-  custom_languages = {}
+  custom_languages = {},
+  -- Optional picker-specific options
+  picker_opts = {
+    snacks = {
+      -- Snacks-specific options here
+    },
+    telescope = {
+      -- Telescope-specific options here
+    },
+    ["fzf-lua"] = {
+      -- fzf-lua-specific options here
+    },
+  },
 }
 ```
 
