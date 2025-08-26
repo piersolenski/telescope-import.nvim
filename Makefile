@@ -3,6 +3,8 @@ TESTS_DIR=tests
 
 .PHONY: format lint test
 
+check: format lint test
+
 format:
 	stylua .
 

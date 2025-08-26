@@ -167,6 +167,21 @@ custom_languages = {
 ```
 
 Custom languages are merged with built-in language support, with your configurations taking precedence over defaults.
+
+#### Contributing Languages
+
+If you created a custom language configuration that works well, please consider contributing it to make it a default supported language! Here's how:
+
+1. Fork the repository on GitHub
+2. Create a feature branch named `feature/add-<language>-support` (e.g., `feature/add-elm-support`)
+3. Add the regex pattern to `lua/import/language/regex.lua`
+4. Add the language config to `lua/import/language/languages.lua`
+5. Add comprehensive tests for different import formats to `tests/import/core/regex_spec.lua`
+6. Run checks with `make check` to ensure everything works
+7. Submit a pull request with your changes
+
+Your contribution will help other users of the same language!
+
 </details>
 
 ## 🚀 Usage
