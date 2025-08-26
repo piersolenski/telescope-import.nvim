@@ -1,11 +1,23 @@
 local constants = require("import.core.constants")
 
-local ok, pick = pcall(require, "snacks.picker")
+local ok, snacks = pcall(require, "snacks")
 if not ok then
   return function()
     error("snacks.nvim not found. Please install it to use this picker.", 0)
   end
 end
+
+local user_layout = snacks.config.picker.layout.layout
+
+local overrides = {
+  title = constants.title,
+  width = constants.width,
+  height = constants.height,
+  min_height = constants.min_height,
+  min_width = constants.min_width,
+}
+
+local layout = vim.tbl_deep_extend("force", user_layout, overrides)
 
 local function snacks_picker(imports, filetype, on_select)
   local formatted_imports = {}
@@ -14,7 +26,9 @@ local function snacks_picker(imports, filetype, on_select)
     table.insert(formatted_imports, { text = result })
   end
 
-  pick({
+  local picker_layout = { layout = layout, preview = false }
+
+  snacks.picker({
     items = formatted_imports,
     confirm = function(picker)
       picker:close()
@@ -42,19 +56,7 @@ local function snacks_picker(imports, filetype, on_select)
     end,
     format = "text",
     formatters = { text = { ft = filetype } },
-    layout = {
-      layout = {
-        height = constants.height,
-        width = constants.width,
-        min_height = constants.min_height,
-        min_width = constants.min_width,
-        box = "vertical",
-        border = constants.border,
-        title = constants.title,
-        { win = "input", height = 1, border = "bottom" },
-        { win = "list", border = "none" },
-      },
-    },
+    layout = picker_layout,
   })
 end
 
