@@ -19,7 +19,9 @@ local overrides = {
   },
 }
 
-local layout = vim.tbl_deep_extend("force", user_layout, overrides)
+local merged_layout = vim.tbl_deep_extend("force", user_layout, overrides)
+
+local layout = { layout = merged_layout, preview = false }
 
 local function snacks_picker(imports, filetype, on_select)
   local formatted_imports = {}
@@ -27,8 +29,6 @@ local function snacks_picker(imports, filetype, on_select)
   for _, result in ipairs(imports) do
     table.insert(formatted_imports, { text = result })
   end
-
-  local picker_layout = { layout = layout, preview = false }
 
   snacks.picker({
     items = formatted_imports,
@@ -58,7 +58,7 @@ local function snacks_picker(imports, filetype, on_select)
     end,
     format = "text",
     formatters = { text = { ft = filetype } },
-    layout = picker_layout,
+    layout = layout,
   })
 end
 
