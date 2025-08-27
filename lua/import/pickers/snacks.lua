@@ -7,7 +7,7 @@ if not ok then
   end
 end
 
-local user_layout = snacks.config.picker.layout.layout
+local user_layout = (snacks.config and snacks.config.picker and snacks.config.picker.layout and snacks.config.picker.layout.layout) or {}
 
 local overrides = {
   width = constants.width,
