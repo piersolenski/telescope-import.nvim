@@ -19,9 +19,6 @@ local overrides = {
   height = constants.height,
   min_height = constants.min_height,
   min_width = constants.min_width,
-  {
-    title = constants.title,
-  },
 }
 
 local merged_layout = vim.tbl_deep_extend("force", user_layout, overrides)
@@ -36,6 +33,7 @@ local function snacks_picker(imports, filetype, on_select)
   end
 
   snacks.picker({
+    title = constants.title,
     items = formatted_imports,
     confirm = function(picker)
       picker:close()
