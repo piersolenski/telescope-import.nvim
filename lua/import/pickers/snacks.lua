@@ -7,18 +7,19 @@ if not ok then
   end
 end
 
-local user_layout = vim.tbl_get(snacks, "config", "picker", "layout", "layout") or {}
+local user_layout = snacks.picker.config.layout(snacks.picker.config.get())
 
 local overrides = {
-  width = constants.width,
-  height = constants.height,
-  min_height = constants.min_height,
-  min_width = constants.min_width,
+  layout = {
+    width = constants.width,
+    height = constants.height,
+    min_height = constants.min_height,
+    min_width = constants.min_width,
+  },
+  preview = false,
 }
 
-local merged_layout = vim.tbl_deep_extend("force", user_layout, overrides)
-
-local layout = { layout = merged_layout, preview = false }
+local layout = vim.tbl_deep_extend("force", user_layout, overrides)
 
 local function snacks_picker(imports, filetype, on_select)
   local formatted_imports = {}
